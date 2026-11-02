@@ -49,7 +49,7 @@ function losujFilm(kraina) {
     wynik.textContent = "🟢 Przyłóż kolejny tag NFC";
 };
 
-
+}
 przycisk.addEventListener("click", async () => {
 
     if (!("NDEFReader" in window)) {
