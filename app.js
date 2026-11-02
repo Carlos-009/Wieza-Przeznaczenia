@@ -41,7 +41,13 @@ function losujFilm(kraina) {
     video.play().catch(() => {
     wynik.textContent += " — dotknij ekranu, aby rozpocząć film.";
 });
-}
+    video.onended = () => {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+
+    wynik.textContent = "🟢 Przyłóż kolejny tag NFC";
+};
 
 
 przycisk.addEventListener("click", async () => {
