@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wieża Przeznaczenia</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f2ead3;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        button {
+            font-size: 22px;
+            padding: 15px 30px;
+            margin: 30px;
+            cursor: pointer;
+        }
+
+        #wynik {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🏰 Wieża Przeznaczenia</h1>
+
+    <p>Przyłóż telefon do taga NFC</p>
+
+    <button id="skanuj">SKANUJ NFC</button>
+
+    <div id="wynik">
+        Oczekiwanie na tag...
+    </div>
+
+    <script>
+
+        const przycisk = document.getElementById("skanuj");
+        const wynik = document.getElementById("wynik");
+
+        przycisk.addEventListener("click", async () => {
+
+            if (!("NDEFReader" in window)) {
+                wynik.textContent =
+                    "❌ Ten telefon lub przeglądarka nie obsługuje Web NFC.";
+                return;
+            }
+
+            try {
+
+                const ndef = new NDEFReader();
+
+                await ndef.scan();
+
+                wynik.textContent =
+                    "🟢 NFC aktywne — przyłóż tag...";
+
+                ndef.addEventListener("reading", ({ message }) => {
+
+                    for (const record of message.records) {
+
+                        if (record.recordType === "text") {
+
+                            const decoder =
+                                new TextDecoder(record.encoding);
+
+                            const tekst =
+                                decoder.decode(record.data);
+
+                            wynik.textContent =
+                                "🌲 WYKRYTO: " + tekst;
+
+                            console.log("Odczytano:", tekst);
+                        }
+                    }
+                });
+
+            } catch (error) {
+
+                console.error(error);
+
+                wynik.textContent =
+                    "❌ Nie udało się uruchomić NFC: " + error;
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
