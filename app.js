@@ -1,4 +1,3 @@
-
 const wynik = document.getElementById("wynik");
 const przycisk = document.getElementById("skanuj");
 const video = document.getElementById("video");
@@ -22,6 +21,7 @@ const filmy = {
 };
 
 function losujFilm(kraina) {
+
     const lista = filmy[kraina];
 
     if (!lista || lista.length === 0) {
@@ -36,20 +36,22 @@ function losujFilm(kraina) {
     video.src = wylosowany;
     video.load();
 
-    wynik.textContent = "🌲 Wylosowano film dla krainy: " + kraina;
+    wynik.textContent = "🎬 Wylosowano film dla krainy: " + kraina;
 
     video.play().catch(() => {
-    wynik.textContent += " — dotknij ekranu, aby rozpocząć film.";
-});
+        wynik.textContent += " — dotknij ekranu, aby rozpocząć film.";
+    });
+
     video.onended = () => {
-    video.pause();
-    video.removeAttribute("src");
-    video.load();
 
-    wynik.textContent = "🟢 Przyłóż kolejny tag NFC";
-};
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
 
+        wynik.textContent = "🟢 Przyłóż kolejny tag NFC";
+    };
 }
+
 przycisk.addEventListener("click", async () => {
 
     if (!("NDEFReader" in window)) {
@@ -58,6 +60,7 @@ przycisk.addEventListener("click", async () => {
     }
 
     try {
+
         const ndef = new NDEFReader();
 
         ndef.addEventListener("reading", ({ message }) => {
@@ -65,14 +68,22 @@ przycisk.addEventListener("click", async () => {
             for (const record of message.records) {
 
                 if (record.recordType === "text") {
-                    const decoder = new TextDecoder(record.encoding);
-                    const tekst = decoder.decode(record.data).trim().toLowerCase();
 
-if (filmy[tekst]) {
-    losujFilm(tekst);
-} else {
-    wynik.textContent = "Nieznany tag: " + tekst;
-}
+                    const decoder = new TextDecoder(record.encoding);
+
+                    const tekst = decoder
+                        .decode(record.data)
+                        .trim()
+                        .toLowerCase();
+
+                    if (filmy[tekst]) {
+
+                        losujFilm(tekst);
+
+                    } else {
+
+                        wynik.textContent = "Nieznany tag: " + tekst;
+                    }
                 }
             }
         });
@@ -82,6 +93,7 @@ if (filmy[tekst]) {
         wynik.textContent = "🟢 NFC aktywne — przyłóż tag.";
 
     } catch (error) {
+
         wynik.textContent = "Błąd NFC: " + error.message;
     }
 });
