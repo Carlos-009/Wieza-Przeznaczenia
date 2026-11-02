@@ -70,11 +70,11 @@ przycisk.addEventListener("click", async () => {
                     const decoder = new TextDecoder(record.encoding);
                     const tekst = decoder.decode(record.data).trim().toLowerCase();
 
-                    if (tekst === "las") {
-                        losujFilm("las");
-                    } else {
-                        wynik.textContent = "Odczytano tag: " + tekst;
-                    }
+if (filmy[tekst]) {
+    losujFilm(tekst);
+} else {
+    wynik.textContent = "Nieznany tag: " + tekst;
+}
                 }
             }
         });
