@@ -35,6 +35,7 @@ function losujFilm(kraina) {
 
     video.src = wylosowany;
     video.load();
+    video.classList.add("odtwarzanie");
 
     wynik.textContent = "🎬 Wylosowano film dla krainy: " + kraina;
 
@@ -45,6 +46,7 @@ function losujFilm(kraina) {
     video.onended = () => {
 
         video.pause();
+        video.classList.remove("odtwarzanie");
         video.removeAttribute("src");
         video.load();
 
