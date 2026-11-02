@@ -5,10 +5,21 @@ const video = document.getElementById("video");
 const przyciskOdtwarzania = document.getElementById("odtworz");
 
 const filmy = {
-    las: [
-        "https://www.w3schools.com/html/mov_bbb.mp4"
-      
-    ]
+    las: Array.from({ length: 18 }, (_, i) =>
+        `https://archive.org/download/plikiWP/las${String(i + 1).padStart(2, "0")}.mp4`
+    ),
+
+    gory: Array.from({ length: 18 }, (_, i) =>
+        `https://archive.org/download/plikiWP/gory${String(i + 1).padStart(2, "0")}.mp4`
+    ),
+
+    miasto: Array.from({ length: 18 }, (_, i) =>
+        `https://archive.org/download/plikiWP/miasto${String(i + 1).padStart(2, "0")}.mp4`
+    ),
+
+    pola: Array.from({ length: 18 }, (_, i) =>
+        `https://archive.org/download/plikiWP/pole${String(i + 1).padStart(2, "0")}.mp4`
+    )
 };
 
 function losujFilm(kraina) {
