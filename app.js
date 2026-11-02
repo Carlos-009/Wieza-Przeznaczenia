@@ -2,7 +2,6 @@
 const wynik = document.getElementById("wynik");
 const przycisk = document.getElementById("skanuj");
 const video = document.getElementById("video");
-const przyciskOdtwarzania = document.getElementById("odtworz");
 
 const filmy = {
     las: Array.from({ length: 18 }, (_, i) =>
@@ -39,18 +38,11 @@ function losujFilm(kraina) {
 
     wynik.textContent = "🌲 Wylosowano film dla krainy: " + kraina;
 
-    przyciskOdtwarzania.hidden = false;
-
-    video.play().then(() => {
-        przyciskOdtwarzania.hidden = true;
-    }).catch(() => {
-        wynik.textContent += " — naciśnij ODTWÓRZ FILM.";
-    });
+    video.play().catch(() => {
+    wynik.textContent += " — dotknij ekranu, aby rozpocząć film.";
+});
 }
 
-przyciskOdtwarzania.addEventListener("click", () => {
-    video.play();
-});
 
 przycisk.addEventListener("click", async () => {
 
