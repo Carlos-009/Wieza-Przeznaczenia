@@ -6,9 +6,9 @@ const przyciskOdtwarzania = document.getElementById("odtworz");
 
 const filmy = {
     las: [
-        "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+        "https://archive.org/download/plikiWP/las01.mp4",
+        "https://archive.org/download/plikiWP/las02.mp4",
+        "https://archive.org/download/plikiWP/las03.mp4"
     ]
 };
 
