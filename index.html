@@ -4,72 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Wieża Przeznaczenia</title>
+
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#f2ead3">
+    <meta name="theme-color" content="#171629">
     <meta name="mobile-web-app-capable" content="yes">
-    
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: Georgia, serif;
             text-align: center;
-            background: #f2ead3;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow: hidden;
+
+            background-image: url("tlo-wieza.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: #171629;
         }
 
-        h1 {
-            font-size: 32px;
+        #ekran-startowy {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
 
-        button {
-            font-size: 20px;
-            padding: 15px 25px;
-            margin: 15px;
+        #skanuj {
+            font-family: Georgia, serif;
+            font-size: clamp(19px, 5vw, 26px);
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff0bd;
+
+            background: linear-gradient(
+                145deg,
+                rgba(75, 48, 91, 0.94),
+                rgba(30, 22, 49, 0.96)
+            );
+
+            border: 3px solid #e8bd63;
+            border-radius: 16px;
+
+            padding: 19px 30px;
+            min-width: 250px;
+
+            box-shadow:
+                0 0 12px #e8bd63,
+                0 0 28px rgba(232, 189, 99, 0.55),
+                inset 0 0 12px rgba(255, 230, 170, 0.2);
+
+            text-shadow: 0 2px 5px #000;
             cursor: pointer;
         }
 
+        #skanuj:active {
+            transform: scale(0.96);
+        }
+
         #wynik {
-            font-size: 23px;
+            color: #fff0bd;
+            font-family: Georgia, serif;
+            font-size: 18px;
             font-weight: bold;
-            margin: 25px;
+            margin-top: 22px;
+            padding: 10px 16px;
+            max-width: 90%;
+
+            background: rgba(20, 15, 35, 0.78);
+            border: 1px solid rgba(232, 189, 99, 0.7);
+            border-radius: 12px;
+            text-shadow: 0 2px 4px #000;
+        }
+
+        #odtworz {
+            display: none;
         }
 
         video {
-    display: none;
-    width: min(100%, 405px);
-    max-height: 75vh;
-    aspect-ratio: 9 / 16;
-    object-fit: contain;
-    margin: 20px auto 0;
-    background: #000;
-}
-    video.odtwarzanie {
-    display: block;
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-    max-height: none;
-    aspect-ratio: auto;
-    object-fit: contain;
-    margin: 0;
-    z-index: 9999;
-    background: #000;
-}
+            display: none;
+            width: min(100%, 405px);
+            max-height: 75vh;
+            aspect-ratio: 9 / 16;
+            object-fit: contain;
+            margin: 20px auto 0;
+            background: #000;
+        }
+
+        video.odtwarzanie {
+            display: block;
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            max-height: none;
+            aspect-ratio: auto;
+            object-fit: contain;
+            margin: 0;
+            z-index: 9999;
+            background: #000;
+        }
     </style>
 </head>
 
 <body>
 
-    <h1>🏰 Wieża Przeznaczenia</h1>
+    <div id="ekran-startowy">
 
-    <p>Przyłóż telefon do taga NFC</p>
+        <button id="skanuj">✦ ROZPOCZNIJ GRĘ ✦</button>
 
-    <button id="skanuj">SKANUJ NFC</button>
+        <div id="wynik">
+            Dotknij przycisku, aby rozpocząć przygodę
+        </div>
 
-    <div id="wynik">Oczekiwanie na tag...</div>
+    </div>
 
     <button id="odtworz" hidden>ODTWÓRZ FILM</button>
 
@@ -79,4 +140,3 @@
 
 </body>
 </html>
-
