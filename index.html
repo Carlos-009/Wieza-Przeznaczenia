@@ -33,10 +33,14 @@
         }
 
         video {
-            width: 100%;
-            max-width: 700px;
-            margin-top: 20px;
-        }
+    display: block;
+    width: min(100%, 405px);
+    max-height: 75vh;
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+    margin: 20px auto 0;
+    background: #000;
+}
     </style>
 </head>
 
