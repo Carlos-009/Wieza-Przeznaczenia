@@ -1,0 +1,11 @@
+{
+  "name": "Wieża Przeznaczenia",
+  "short_name": "Wieża",
+  "description": "Aplikacja do gry planszowej Wieża Przeznaczenia",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2ead3",
+  "theme_color": "#f2ead3"
+}
