@@ -6,9 +6,8 @@ const przyciskOdtwarzania = document.getElementById("odtworz");
 
 const filmy = {
     las: [
-        "https://archive.org/download/plikiWP/las01.mp4",
-        "https://archive.org/download/plikiWP/las02.mp4",
-        "https://archive.org/download/plikiWP/las03.mp4"
+        "https://www.w3schools.com/html/mov_bbb.mp4"
+      
     ]
 };
 
