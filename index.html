@@ -18,92 +18,125 @@
 
         body {
             font-family: Georgia, serif;
-            text-align: center;
             margin: 0;
-            padding: 0;
             min-height: 100vh;
             min-height: 100dvh;
-            overflow: hidden;
-
-            background-image: url("tlo-wieza.jpg");
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-color: #171629;
+            background: #171629;
+            color: #fff0bd;
         }
 
-        #ekran-startowy {
+        .ekran {
             position: fixed;
             inset: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            display: none;
+            overflow-y: auto;
+            text-align: center;
+            padding: 25px 18px;
         }
 
-        #skanuj {
-            font-family: Georgia, serif;
-            font-size: clamp(19px, 5vw, 26px);
-            font-weight: bold;
-            letter-spacing: 1px;
+        .aktywny {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #menu {
+            justify-content: center;
+            background-image: url("tlo-wieza.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            color: #ffe5a0;
+            text-shadow: 0 2px 8px #000;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .menu-przycisk {
+            width: min(90%, 340px);
+            padding: 17px 12px;
+            margin: 7px;
+            border: 2px solid #e8bd63;
+            border-radius: 14px;
+            background: linear-gradient(145deg, #493052, #20172f);
             color: #fff0bd;
-
-            background: linear-gradient(
-                145deg,
-                rgba(75, 48, 91, 0.94),
-                rgba(30, 22, 49, 0.96)
-            );
-
-            border: 3px solid #e8bd63;
-            border-radius: 16px;
-
-            padding: 19px 30px;
-            min-width: 250px;
-
-            box-shadow:
-                0 0 12px #e8bd63,
-                0 0 28px rgba(232, 189, 99, 0.55),
-                inset 0 0 12px rgba(255, 230, 170, 0.2);
-
-            text-shadow: 0 2px 5px #000;
+            font-family: Georgia, serif;
+            font-size: 21px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px #000;
+            box-shadow: 0 0 14px rgba(232,189,99,0.45);
             cursor: pointer;
         }
 
-        #skanuj:active {
-            transform: scale(0.96);
+        .menu-przycisk:active {
+            transform: scale(0.97);
+        }
+
+        .maly-przycisk {
+            padding: 12px 22px;
+            margin: 12px;
+            border: 2px solid #e8bd63;
+            border-radius: 12px;
+            background: #30213e;
+            color: #fff0bd;
+            font-family: Georgia, serif;
+            font-size: 17px;
+        }
+
+        .panel {
+            width: min(100%, 500px);
+            margin: auto;
+            padding: 20px;
+            background: rgba(25, 18, 35, 0.94);
+            border: 2px solid #c99d4e;
+            border-radius: 16px;
+        }
+
+        #widok-instrukcji {
+            padding: 0;
+            background: #171629;
+        }
+
+        #obraz-instrukcji {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        #naglowek-instrukcji {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            width: 100%;
+            padding: 10px;
+            background: #241832;
+            border-bottom: 1px solid #c99d4e;
+        }
+
+        #ekran-gry {
+            justify-content: center;
+            background: rgba(20, 15, 35, 0.94);
         }
 
         #wynik {
-            color: #fff0bd;
-            font-family: Georgia, serif;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            margin-top: 22px;
-            padding: 10px 16px;
-            max-width: 90%;
-
-            background: rgba(20, 15, 35, 0.78);
-            border: 1px solid rgba(232, 189, 99, 0.7);
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 95%;
+            background: rgba(20, 15, 35, 0.85);
+            border: 1px solid #c99d4e;
             border-radius: 12px;
-            text-shadow: 0 2px 4px #000;
         }
 
-        #odtworz {
+        #video {
             display: none;
-        }
-
-        video {
-            display: none;
-            width: min(100%, 405px);
-            max-height: 75vh;
-            aspect-ratio: 9 / 16;
-            object-fit: contain;
-            margin: 20px auto 0;
             background: #000;
         }
 
-        video.odtwarzanie {
+        #video.odtwarzanie {
             display: block;
             position: fixed;
             inset: 0;
@@ -111,32 +144,117 @@
             height: 100vh;
             height: 100dvh;
             max-height: none;
-            aspect-ratio: auto;
             object-fit: contain;
             margin: 0;
             z-index: 9999;
-            background: #000;
+        }
+
+        #wlacz-dzwiek {
+            display: none;
+            position: fixed;
+            z-index: 10001;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        select {
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            margin: 12px;
         }
     </style>
 </head>
 
 <body>
 
-    <div id="ekran-startowy">
+    <section id="menu" class="ekran aktywny">
+        <h1>🏰 Wieża Przeznaczenia</h1>
 
-        <button id="skanuj">✦ ROZPOCZNIJ GRĘ ✦</button>
+        <button class="menu-przycisk" id="rozpocznij">
+            ⚔️ ROZPOCZNIJ GRĘ
+        </button>
 
-        <div id="wynik">
-            Dotknij przycisku, aby rozpocząć przygodę
+        <button class="menu-przycisk" id="pokaz-intro">
+            🎬 INTRO
+        </button>
+
+        <button class="menu-przycisk" id="pokaz-instrukcje">
+            📖 INSTRUKCJA
+        </button>
+
+        <button class="menu-przycisk" id="pokaz-o-grze">
+            🏰 O GRZE
+        </button>
+
+        <button class="menu-przycisk" id="pokaz-ustawienia">
+            ⚙️ USTAWIENIA
+        </button>
+    </section>
+
+    <section id="widok-instrukcji" class="ekran">
+        <div id="naglowek-instrukcji">
+            <button class="maly-przycisk" id="powrot-instrukcja">
+                ← POWRÓT DO MENU
+            </button>
         </div>
+        <img id="obraz-instrukcji"
+             src="instrukcja.jpg"
+             alt="Instrukcja gry">
+    </section>
 
-    </div>
+    <section id="widok-ogra" class="ekran">
+        <div class="panel">
+            <h1>🏰 O GRZE</h1>
+            <p>
+                Witaj w świecie Wieży Przeznaczenia!
+            </p>
+            <p>
+                Czeka Cię niezwykła przygoda pełna tajemnic,
+                wyzwań, skarbów i niespodzianek.
+            </p>
+            <button class="maly-przycisk" id="powrot-o-grze">
+                ← POWRÓT DO MENU
+            </button>
+        </div>
+    </section>
 
-    <button id="odtworz" hidden>ODTWÓRZ FILM</button>
+    <section id="widok-ustawien" class="ekran">
+        <div class="panel">
+            <h1>⚙️ USTAWIENIA</h1>
+            <p>Wybór języka:</p>
+            <select id="jezyk">
+                <option value="pl">Polski</option>
+                <option value="en" disabled>English – wkrótce</option>
+            </select>
+            <p>Więcej ustawień pojawi się w kolejnych wersjach.</p>
+            <button class="maly-przycisk" id="powrot-ustawienia">
+                ← POWRÓT DO MENU
+            </button>
+        </div>
+    </section>
+
+    <section id="ekran-gry" class="ekran">
+        <div class="panel">
+            <h1>⚔️ ROZGRYWKA</h1>
+            <div id="wynik">Przyłóż tag NFC</div>
+            <button class="menu-przycisk" id="skanuj">
+                📡 AKTYWUJ NFC
+            </button>
+            <button class="maly-przycisk" id="powrot-menu">
+                ← POWRÓT DO MENU
+            </button>
+        </div>
+    </section>
 
     <video id="video" controls playsinline></video>
 
-    <script src="app.js?v=2"></script>
+    <button class="maly-przycisk" id="wlacz-dzwiek">
+        🔊 WŁĄCZ DŹWIĘK
+    </button>
+
+    <script src="app.js?v=3"></script>
 
 </body>
 </html>
