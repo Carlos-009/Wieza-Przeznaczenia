@@ -175,7 +175,15 @@ function losujPrzedmiot() {
     }
 
     losowanieTrwa = true;
+    const dzwiekLosowania = new Audio(
+    adresDzwieku("losowanie_tajemnicze.mp3")
+);
 
+dzwiekLosowania.volume = 0.3;
+
+dzwiekLosowania.play().catch(error => {
+    console.log("Nie udało się odtworzyć dźwięku losowania:", error);
+});
     pokazEkran("ekran-przedmiotow");
 
     przyciskDostepny.style.display = "none";
@@ -200,7 +208,7 @@ function losujPrzedmiot() {
 
         if (czas >= czasCalkowity) {
             losowanieTrwa = false;
-
+            dzwiekLosowania.pause();
             const wynikLosowania = dostepne[
                 Math.floor(Math.random() * dostepne.length)
             ];
