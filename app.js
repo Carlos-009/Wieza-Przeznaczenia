@@ -77,6 +77,26 @@ function zapiszZdobywce(typ, kolor) {
         JSON.stringify(zdobyteSpecjalne)
     );
 }
+// RESETOWANIE GRY
+
+function resetujGre() {
+    const potwierdzenie = confirm(
+        "Czy na pewno chcesz rozpocząć nową grę? Wszystkie zdobyte podwójne ataki i podwójne obrony zostaną wyzerowane."
+    );
+
+    if (!potwierdzenie) {
+        return;
+    }
+
+    zdobyteSpecjalne = {};
+
+    localStorage.setItem(
+        "wieza_specjalne",
+        JSON.stringify(zdobyteSpecjalne)
+    );
+
+    alert("Gra została zresetowana! Można rozpocząć nową rozgrywkę.");
+}
 // AKTUALNIE WYLOSOWANY PRZEDMIOT
 
 let aktualnyPrzedmiot = null;
