@@ -33,7 +33,7 @@ const przedmioty = [
     { nazwa: "Drabina", obraz: "drabina1.jpg", dzwiek: "Drabina.mp3" },
 
     { nazwa: "Podwójny atak", obraz: "atak_x2.jpg", dzwiek: "atak_x2.mp3", specjalny: "atak" },
-    { nazwa: "Podwójna obrona", obraz: "obrona_x2.jpg", dzwiek: "obrona_x2.mp3", specjalny: "obrona" }
+    { nazwa: "Podwójna obrona", obraz: "obrona_x2.jpg", dzwiek: "obron_x2.mp3", specjalny: "obrona" }
 ];
 
 // PAMIĘĆ ZDOBYWCÓW SPECJALNYCH ŻETONÓW
