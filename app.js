@@ -3,6 +3,52 @@ const wynik = document.getElementById("wynik");
 const video = document.getElementById("video");
 const przycisk = document.getElementById("skanuj");
 const wlaczDzwiek = document.getElementById("wlacz-dzwiek");
+// ELEMENTY LOSOWANIA PRZEDMIOTÓW
+
+const ekranPrzedmiotow = document.getElementById("ekran-przedmiotow");
+const obrazLosowania = document.getElementById("obraz-losowania");
+const nazwaPrzedmiotu = document.getElementById("nazwa-przedmiotu");
+const wyborKoloru = document.getElementById("wybor-koloru");
+
+const przyciskDostepny = document.getElementById("przedmiot-dostepny");
+const przyciskBrak = document.getElementById("przedmiot-brak");
+const przyciskPowrotLosowania = document.getElementById("powrot-losowania");
+
+// PULA 12 ZWYKŁYCH PRZEDMIOTÓW I 2 SPECJALNYCH
+
+const przedmioty = [
+    { nazwa: "Miecz 1", obraz: "miecz1.jpg", dzwiek: "Atak1.mp3" },
+    { nazwa: "Miecz 2", obraz: "miecz2.jpg", dzwiek: "Atak2.mp3" },
+    { nazwa: "Miecz 3", obraz: "miecz3.jpg", dzwiek: "Atak3.mp3" },
+    { nazwa: "Miecz 4", obraz: "miecz4.jpg", dzwiek: "Atak4.mp3" },
+    { nazwa: "Miecz 5", obraz: "miecz5.jpg", dzwiek: "Atak5.mp3" },
+
+    { nazwa: "Tarcza 1", obraz: "tarcza1.jpg", dzwiek: "Obrona1.mp3" },
+    { nazwa: "Tarcza 2", obraz: "tarcza2.jpg", dzwiek: "Obrona2.mp3" },
+    { nazwa: "Tarcza 3", obraz: "tarcza3.jpg", dzwiek: "Obrona3.mp3" },
+    { nazwa: "Tarcza 4", obraz: "tarcza4.jpg", dzwiek: "Obrona4.mp3" },
+    { nazwa: "Tarcza 5", obraz: "tarcza5.jpg", dzwiek: "Obrona5.mp3" },
+
+    { nazwa: "Lina", obraz: "lina1.jpg", dzwiek: "Lina.mp3" },
+    { nazwa: "Drabina", obraz: "drabina1.jpg", dzwiek: "Drabina.mp3" },
+
+    { nazwa: "Podwójny atak", obraz: "atak_x2.jpg", dzwiek: "Atak_x2.mp3", specjalny: "atak" },
+    { nazwa: "Podwójna obrona", obraz: "obrona_x2.jpg", dzwiek: "Obrona_x2.mp3", specjalny: "obrona" }
+];
+
+// PAMIĘĆ ZDOBYWCÓW SPECJALNYCH ŻETONÓW
+
+let zdobyteSpecjalne = {};
+
+try {
+    zdobyteSpecjalne = JSON.parse(
+        localStorage.getItem("wieza_specjalne") || "{}"
+    );
+} catch (error) {
+    zdobyteSpecjalne = {};
+}
+
+const adresDzwieku = nazwa => "dzwieki/" + nazwa;
 
 const adresIntro =
     "https://archive.org/download/intro_20261103_2022/intro.mp4";
