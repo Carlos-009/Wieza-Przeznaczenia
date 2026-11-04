@@ -49,7 +49,147 @@ try {
 }
 
 const adresDzwieku = nazwa => "dzwieki/" + nazwa;
+// SPRAWDZANIE, CZY SPECJALNY ŻETON JEST JESZCZE DOSTĘPNY
 
+function czySpecjalnyDostepny(przedmiot) {
+    if (!przedmiot.specjalny) {
+        return true;
+    }
+
+    const zdobywcy = zdobyteSpecjalne[przedmiot.specjalny] || [];
+
+    return zdobywcy.length < 4;
+}
+
+// ZAPISYWANIE ZDOBYWCY SPECJALNEGO ŻETONU
+
+function zapiszZdobywce(typ, kolor) {
+    if (!zdobyteSpecjalne[typ]) {
+        zdobyteSpecjalne[typ] = [];
+    }
+
+    if (!zdobyteSpecjalne[typ].includes(kolor)) {
+        zdobyteSpecjalne[typ].push(kolor);
+    }
+
+    localStorage.setItem(
+        "wieza_specjalne",
+        JSON.stringify(zdobyteSpecjalne)
+    );
+}
+// AKTUALNIE WYLOSOWANY PRZEDMIOT
+
+let aktualnyPrzedmiot = null;
+let losowanieTrwa = false;
+let dzwiekPrzedmiotu = null;
+
+// POWRÓT DO GŁÓWNEGO LOSOWANIA
+
+function powrotDoLosowania() {
+    if (dzwiekPrzedmiotu) {
+        dzwiekPrzedmiotu.pause();
+        dzwiekPrzedmiotu = null;
+    }
+
+    obrazLosowania.src = "";
+    wyborKoloru.style.display = "none";
+
+    przyciskDostepny.style.display = "none";
+    przyciskBrak.style.display = "none";
+    przyciskPowrotLosowania.style.display = "none";
+
+    nazwaPrzedmiotu.textContent = "Przyłóż tag NFC, aby losować.";
+    pokazEkran("ekran-gry");
+
+    wynik.textContent = "🟢 NFC aktywne — przyłóż tag przedmiotu.";
+}
+
+// WYŚWIETLENIE WYLOSOWANEGO PRZEDMIOTU
+
+function pokazWylosowanyPrzedmiot(przedmiot) {
+    aktualnyPrzedmiot = przedmiot;
+
+    obrazLosowania.src = "przedmioty/" + przedmiot.obraz;
+    nazwaPrzedmiotu.textContent = przedmiot.nazwa;
+
+    przyciskDostepny.style.display = przedmiot.specjalny ? "none" : "block";
+    przyciskBrak.style.display = przedmiot.specjalny ? "none" : "block";
+    przyciskPowrotLosowania.style.display = "block";
+
+    if (przedmiot.specjalny) {
+        wyborKoloru.style.display = "flex";
+
+        const zdobywcy = zdobyteSpecjalne[przedmiot.specjalny] || [];
+
+        document.querySelectorAll("#wybor-koloru button").forEach(button => {
+            button.disabled = zdobywcy.includes(button.dataset.kolor);
+            button.style.opacity = button.disabled ? "0.35" : "1";
+        });
+    } else {
+        wyborKoloru.style.display = "none";
+    }
+
+    dzwiekPrzedmiotu = new Audio(adresDzwieku(przedmiot.dzwiek));
+
+    dzwiekPrzedmiotu.play().catch(() => {
+        console.log("Nie udało się odtworzyć dźwięku.");
+    });
+}
+
+// LOSOWANIE Z ANIMACJĄ
+
+function losujPrzedmiot() {
+    if (losowanieTrwa) return;
+
+    const dostepne = przedmioty.filter(czySpecjalnyDostepny);
+
+    if (dostepne.length === 0) {
+        nazwaPrzedmiotu.textContent = "Wszystkie przedmioty specjalne zostały rozdane.";
+        return;
+    }
+
+    losowanieTrwa = true;
+
+    pokazEkran("ekran-przedmiotow");
+
+    przyciskDostepny.style.display = "none";
+    przyciskBrak.style.display = "none";
+    przyciskPowrotLosowania.style.display = "none";
+    wyborKoloru.style.display = "none";
+
+    nazwaPrzedmiotu.textContent = "🎲 Losowanie...";
+
+    let czas = 0;
+    let opoznienie = 60;
+    const czasCalkowity = 5000;
+
+    function zmienObraz() {
+        const przedmiot = dostepne[
+            Math.floor(Math.random() * dostepne.length)
+        ];
+
+        obrazLosowania.src = "przedmioty/" + przedmiot.obraz;
+
+        czas += opoznienie;
+
+        if (czas >= czasCalkowity) {
+            losowanieTrwa = false;
+
+            const wynikLosowania = dostepne[
+                Math.floor(Math.random() * dostepne.length)
+            ];
+
+            pokazWylosowanyPrzedmiot(wynikLosowania);
+            return;
+        }
+
+        opoznienie *= 1.18;
+
+        setTimeout(zmienObraz, opoznienie);
+    }
+
+    zmienObraz();
+}
 const adresIntro =
     "https://archive.org/download/intro_20261103_2022/intro.mp4";
 
@@ -198,7 +338,42 @@ function losujFilm(kraina) {
 
     odtworzFilm(wylosowany, "kraina", false);
 }
+// OBSŁUGA PRZYCISKÓW LOSOWANIA
 
+// Gracz zabiera zwykły przedmiot i wraca do oczekiwania na NFC
+przyciskDostepny.addEventListener("click", () => {
+    powrotDoLosowania();
+});
+
+// Przedmiotu nie ma w banku – losujemy ponownie
+przyciskBrak.addEventListener("click", () => {
+    losujPrzedmiot();
+});
+
+// Powrót do oczekiwania na kolejne losowanie
+przyciskPowrotLosowania.addEventListener("click", () => {
+    powrotDoLosowania();
+});
+
+// Wybór koloru gracza przy podwójnym ataku i obronie
+document.querySelectorAll("#wybor-koloru button").forEach(button => {
+    button.addEventListener("click", () => {
+        if (!aktualnyPrzedmiot || !aktualnyPrzedmiot.specjalny) {
+            return;
+        }
+
+        const kolor = button.dataset.kolor;
+
+        zapiszZdobywce(aktualnyPrzedmiot.specjalny, kolor);
+
+        wyborKoloru.style.display = "none";
+
+        nazwaPrzedmiotu.textContent =
+            aktualnyPrzedmiot.nazwa + " – zdobył gracz: " + kolor.toUpperCase();
+
+        przyciskPowrotLosowania.style.display = "block";
+    });
+});
 // NFC
 
 let nfcAktywne = false;
@@ -228,11 +403,15 @@ przycisk.addEventListener("click", async () => {
                         .toLowerCase();
 
                     if (filmy[tekst]) {
-                        pokazEkran("ekran-gry");
-                        losujFilm(tekst);
-                    } else {
-                        wynik.textContent = "Nieznany tag: " + tekst;
-                    }
+    pokazEkran("ekran-gry");
+    losujFilm(tekst);
+
+} else if (tekst === "przedmiot") {
+    losujPrzedmiot();
+
+} else {
+    wynik.textContent = "Nieznany tag: " + tekst;
+}
                 }
             }
         });
