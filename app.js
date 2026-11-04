@@ -129,16 +129,11 @@ function pokazWylosowanyPrzedmiot(przedmiot) {
         wyborKoloru.style.display = "none";
     }
 
-dzwiekPrzedmiotu = new Audio();
+dzwiekPrzedmiotu = new Audio(adresDzwieku(przedmiot.dzwiek));
 
-dzwiekPrzedmiotu.src = adresDzwieku(przedmiot.dzwiek);
-dzwiekPrzedmiotu.load();
-
-dzwiekPrzedmiotu.oncanplaythrough = () => {
-    dzwiekPrzedmiotu.play().catch(error => {
-        console.log("Błąd odtwarzania dźwięku:", error);
-    });
-};
+dzwiekPrzedmiotu.play().catch(error => {
+    console.log("Nie udało się odtworzyć dźwięku:", error);
+});
 }
 
 // LOSOWANIE Z ANIMACJĄ
