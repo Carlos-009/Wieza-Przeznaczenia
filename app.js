@@ -383,6 +383,28 @@ document.querySelectorAll("#wybor-koloru button").forEach(button => {
 // NFC
 
 let nfcAktywne = false;
+// OBSŁUGA DŹWIĘKU W PRZEGLĄDARCE
+let kontekstAudio = null;
+function odblokujDzwiek() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioContext) return;
+
+    if (!kontekstAudio) {
+        kontekstAudio = new AudioContext();
+    }
+
+    if (kontekstAudio.state === "suspended") {
+        kontekstAudio.resume();
+    }
+
+    const bufor = kontekstAudio.createBuffer(1, 1, 22050);
+    const zrodlo = kontekstAudio.createBufferSource();
+
+    zrodlo.buffer = bufor;
+    zrodlo.connect(kontekstAudio.destination);
+    zrodlo.start(0);
+}
 
 przycisk.addEventListener("click", async () => {
     if (nfcAktywne) {
