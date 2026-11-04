@@ -141,6 +141,12 @@ function pokazWylosowanyPrzedmiot(przedmiot) {
 function losujPrzedmiot() {
     if (losowanieTrwa) return;
 
+    if (dzwiekPrzedmiotu) {
+        dzwiekPrzedmiotu.pause();
+        dzwiekPrzedmiotu.currentTime = 0;
+        dzwiekPrzedmiotu = null;
+    }
+
     const dostepne = przedmioty.filter(czySpecjalnyDostepny);
 
     if (dostepne.length === 0) {
