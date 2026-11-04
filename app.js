@@ -407,6 +407,7 @@ function odblokujDzwiek() {
 }
 
 przycisk.addEventListener("click", async () => {
+        odblokujDzwiek();
     if (nfcAktywne) {
         wynik.textContent = "🟢 NFC jest już aktywne — przyłóż tag.";
         return;
