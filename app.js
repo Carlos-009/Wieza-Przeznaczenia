@@ -165,48 +165,34 @@ dzwiekPrzedmiotu.play().catch(error => {
 
 // LOSOWANIE Z ANIMACJĄ
 
-// LOSOWANIE U CZAROWNICY
+// LOSOWANIE U CZAROWNICY Z FILMEM
 
 function losujCzarownice() {
     pokazEkran("ekran-czarownicy");
 
-    nazwaCzarownicy.textContent = "🧙‍♀️ Warzę magiczny eliksir...";
+    nazwaCzarownicy.textContent = "🧙‍♀️ Czarownica warzy eliksir...";
 
-    obrazCzarownicy.src = "przedmioty/pudlo.jpg";
+    obrazCzarownicy.style.display = "none";
 
-    const bulgotanie = new Audio(
-        adresDzwieku("czarownica_bulgotanie.mp3")
-    );
+    video.src = "https://archive.org/download/czarownica_czaruje/czarownica_czaruje.mp4";
+    video.loop = false;
+    video.controls = false;
+    video.muted = false;
+    video.classList.add("odtwarzanie");
 
-    bulgotanie.loop = true;
-    bulgotanie.volume = 0.4;
-
-    bulgotanie.play().catch(error => {
-        console.log("Błąd dźwięku kotła:", error);
-    });
-
-    let czas = 0;
-
-    const animacja = setInterval(() => {
-        obrazCzarownicy.src =
-            czas % 2 === 0
-                ? "przedmioty/eliksir.jpg"
-                : "przedmioty/pudlo.jpg";
-
-        czas += 200;
-    }, 200);
-
-    setTimeout(() => {
-        clearInterval(animacja);
-
-        bulgotanie.pause();
-        bulgotanie.currentTime = 0;
+    video.onended = () => {
+        video.classList.remove("odtwarzanie");
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
 
         const sukces = Math.random() < 0.2;
 
+        obrazCzarownicy.style.display = "block";
+
         if (sukces) {
             obrazCzarownicy.src = "przedmioty/eliksir.jpg";
-            nazwaCzarownicy.textContent = "✨ ELiksir niewidzialności!";
+            nazwaCzarownicy.textContent = "✨ ELIKSIR NIEWIDZIALNOŚCI!";
 
             const glos = new Audio(
                 adresDzwieku("czarownica_eliksir.mp3")
@@ -228,9 +214,19 @@ function losujCzarownice() {
                 console.log("Błąd śmiechu czarownicy:", error);
             });
         }
+    };
 
-    }, 5000);
+    video.onerror = () => {
+        nazwaCzarownicy.textContent = "Nie udało się odtworzyć filmu.";
+        video.classList.remove("odtwarzanie");
+    };
+
+    video.play().catch(error => {
+        console.log("Błąd odtwarzania filmu czarownicy:", error);
+        nazwaCzarownicy.textContent = "Nie udało się uruchomić filmu.";
+    });
 }
+
 
 przyciskPowrotCzarownicy.addEventListener("click", () => {
     pokazEkran("ekran-gry");
