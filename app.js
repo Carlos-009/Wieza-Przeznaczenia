@@ -14,6 +14,13 @@ const przyciskDostepny = document.getElementById("przedmiot-dostepny");
 const przyciskBrak = document.getElementById("przedmiot-brak");
 const przyciskPowrotLosowania = document.getElementById("powrot-losowania");
 
+// ELEMENTY LOSOWANIA CZAROWNICY
+
+const ekranCzarownicy = document.getElementById("ekran-czarownicy");
+const obrazCzarownicy = document.getElementById("obraz-czarownicy");
+const nazwaCzarownicy = document.getElementById("nazwa-czarownicy");
+const przyciskPowrotCzarownicy = document.getElementById("powrot-czarownicy");
+
 // PULA 12 ZWYKŁYCH PRZEDMIOTÓW I 2 SPECJALNYCH
 
 const przedmioty = [
