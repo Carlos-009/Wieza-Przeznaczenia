@@ -563,7 +563,14 @@ przycisk.addEventListener("click", async () => {
         wynik.textContent = "Błąd NFC: " + error.message;
     }
 });
+// WYBÓR RODZAJU WALKI
 
+document.getElementById("wybierz-walke-rycerzy")
+    .addEventListener("click", () => {
+        pokazEkran("ekran-pojedynku");
+        document.getElementById("wynik-pojedynku").textContent =
+            "Pierwszy rycerz przygotowuje się do walki...";
+    });
 // INTRO PRZY PIERWSZYM URUCHOMIENIU
 
 window.addEventListener("load", () => {
