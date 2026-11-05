@@ -227,10 +227,13 @@ function losujCzarownice() {
     });
 }
 
-
 przyciskPowrotCzarownicy.addEventListener("click", () => {
+    zatrzymajVideo();
+    video.onended = null;
+    video.onerror = null;
     pokazEkran("ekran-gry");
 });
+
 function losujPrzedmiot() {
     if (losowanieTrwa) return;
 
