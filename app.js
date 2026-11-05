@@ -542,7 +542,9 @@ przycisk.addEventListener("click", async () => {
 
 } else if (tekst === "przedmiot") {
     losujPrzedmiot();
-
+} else if (tekst === "czarownica") {
+    losujCzarownice();
+                        
 } else {
     wynik.textContent = "Nieznany tag: " + tekst;
 }
