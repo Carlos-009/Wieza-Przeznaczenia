@@ -165,6 +165,76 @@ dzwiekPrzedmiotu.play().catch(error => {
 
 // LOSOWANIE Z ANIMACJĄ
 
+// LOSOWANIE U CZAROWNICY
+
+function losujCzarownice() {
+    pokazEkran("ekran-czarownicy");
+
+    nazwaCzarownicy.textContent = "🧙‍♀️ Warzę magiczny eliksir...";
+
+    obrazCzarownicy.src = "przedmioty/pudlo.jpg";
+
+    const bulgotanie = new Audio(
+        adresDzwieku("czarownica_bulgotanie.mp3")
+    );
+
+    bulgotanie.loop = true;
+    bulgotanie.volume = 0.4;
+
+    bulgotanie.play().catch(error => {
+        console.log("Błąd dźwięku kotła:", error);
+    });
+
+    let czas = 0;
+
+    const animacja = setInterval(() => {
+        obrazCzarownicy.src =
+            czas % 2 === 0
+                ? "przedmioty/eliksir.jpg"
+                : "przedmioty/pudlo.jpg";
+
+        czas += 200;
+    }, 200);
+
+    setTimeout(() => {
+        clearInterval(animacja);
+
+        bulgotanie.pause();
+        bulgotanie.currentTime = 0;
+
+        const sukces = Math.random() < 0.2;
+
+        if (sukces) {
+            obrazCzarownicy.src = "przedmioty/eliksir.jpg";
+            nazwaCzarownicy.textContent = "✨ ELiksir niewidzialności!";
+
+            const glos = new Audio(
+                adresDzwieku("czarownica_eliksir.mp3")
+            );
+
+            glos.play().catch(error => {
+                console.log("Błąd głosu czarownicy:", error);
+            });
+
+        } else {
+            obrazCzarownicy.src = "przedmioty/pudlo.jpg";
+            nazwaCzarownicy.textContent = "💀 NIC Z TEGO!";
+
+            const glos = new Audio(
+                adresDzwieku("czarownica_pudlo.mp3")
+            );
+
+            glos.play().catch(error => {
+                console.log("Błąd śmiechu czarownicy:", error);
+            });
+        }
+
+    }, 5000);
+}
+
+przyciskPowrotCzarownicy.addEventListener("click", () => {
+    pokazEkran("ekran-gry");
+});
 function losujPrzedmiot() {
     if (losowanieTrwa) return;
 
