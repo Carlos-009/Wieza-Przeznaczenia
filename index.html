@@ -211,6 +211,36 @@
             align-items: center;
             width: 100%;
         }
+        /* MAGICZNE WYŁANIANIE EKRANU CZAROWNICY */
+
+#ekran-czarownicy .panel {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(0.96);
+}
+
+#ekran-czarownicy .panel.magiczne-wejscie {
+    animation: magiaCzarownicy 1.6s ease-out forwards;
+}
+
+@keyframes magiaCzarownicy {
+    0% {
+        opacity: 0;
+        filter: blur(12px);
+        transform: scale(0.96);
+    }
+
+    45% {
+        opacity: 0.5;
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+        }
     </style>
 </head>
 
