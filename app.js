@@ -169,7 +169,9 @@ dzwiekPrzedmiotu.play().catch(error => {
 
 function losujCzarownice() {
     pokazEkran("ekran-czarownicy");
-
+    const panelCzarownicy = ekranCzarownicy.querySelector(".panel");
+    panelCzarownicy.classList.remove("magiczne-wejscie");
+    
     nazwaCzarownicy.textContent = "🧙‍♀️ Czarownica warzy eliksir...";
 
     obrazCzarownicy.style.display = "none";
@@ -185,7 +187,8 @@ function losujCzarownice() {
         video.pause();
         video.removeAttribute("src");
         video.load();
-
+   void panelCzarownicy.offsetWidth;
+        panelCzarownicy.classList.add("magiczne-wejscie");
         const sukces = Math.random() < 0.2;
 
         obrazCzarownicy.style.display = "block";
