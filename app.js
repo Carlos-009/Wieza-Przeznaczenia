@@ -886,10 +886,14 @@ document.getElementById("zatwierdz-wybor-pojedynku")
             wyborDrugiegoRycerza = wybrane;
 
             document.getElementById("wynik-zetonow-pojedynku").textContent =
-                "Wybory obu rycerzy zostały zapisane!";
+           "Wybory obu rycerzy zostały zapisane!";
 
             document.getElementById("zatwierdz-wybor-pojedynku").style.display =
-                "none";
+           "none";
+
+setTimeout(() => {
+    rozstrzygnijPojedynek();
+}, 1500);
         }
     });
 // KOLEJ DRUGIEGO RYCERZA
