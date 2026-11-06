@@ -777,6 +777,26 @@ function rozpocznijWyborZetonow() {
 
     pokazEkran("ekran-zetonow-pojedynku");
 }
+// OBLICZANIE WYNIKU RYCERZA
+
+function obliczSileRycerza(sila, zetony) {
+
+    let wynik = sila;
+
+    zetony.forEach(zeton => {
+
+        if (zeton.typ === "atak") {
+            wynik += zeton.wartosc;
+        }
+
+        if (zeton.typ === "atak_x2") {
+            wynik += 4;
+        }
+
+    });
+
+    return wynik;
+}
 // ZATWIERDZANIE WYBORU ŻETONÓW
 
 document.getElementById("zatwierdz-wybor-pojedynku")
