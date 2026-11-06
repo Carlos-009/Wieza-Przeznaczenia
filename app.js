@@ -811,6 +811,48 @@ function obliczSileRycerza(sila, swojeZetony, zetonyPrzeciwnika) {
 
     return wynik;
 }
+// ROZSTRZYGNIĘCIE POJEDYNKU RYCERZY
+
+function rozstrzygnijPojedynek() {
+
+    const wynikPierwszego = obliczSileRycerza(
+        silaPierwszegoRycerza,
+        wyborPierwszegoRycerza,
+        wyborDrugiegoRycerza
+    );
+
+    const wynikDrugiego = obliczSileRycerza(
+        silaDrugiegoRycerza,
+        wyborDrugiegoRycerza,
+        wyborPierwszegoRycerza
+    );
+
+    pokazEkran("ekran-pojedynku");
+
+    const wynikWalki = document.getElementById("wynik-pojedynku");
+
+    if (wynikPierwszego > wynikDrugiego) {
+
+        wynikWalki.innerHTML =
+            "PIERWSZY RYCERZ: " + wynikPierwszego +
+            "<br>DRUGI RYCERZ: " + wynikDrugiego +
+            "<br><br>🏆 WYGRYWA PIERWSZY RYCERZ!";
+
+    } else if (wynikDrugiego > wynikPierwszego) {
+
+        wynikWalki.innerHTML =
+            "PIERWSZY RYCERZ: " + wynikPierwszego +
+            "<br>DRUGI RYCERZ: " + wynikDrugiego +
+            "<br><br>🏆 WYGRYWA DRUGI RYCERZ!";
+
+    } else {
+
+        wynikWalki.innerHTML =
+            "PIERWSZY RYCERZ: " + wynikPierwszego +
+            "<br>DRUGI RYCERZ: " + wynikDrugiego +
+            "<br><br>⚖️ REMIS! ATACZĄCY COFA SIĘ O JEDNO POLE.";
+    }
+}
 // ZATWIERDZANIE WYBORU ŻETONÓW
 
 document.getElementById("zatwierdz-wybor-pojedynku")
