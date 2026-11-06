@@ -779,11 +779,13 @@ function rozpocznijWyborZetonow() {
 }
 // OBLICZANIE WYNIKU RYCERZA
 
-function obliczSileRycerza(sila, zetony) {
+// OBLICZANIE WYNIKU RYCERZA
+
+function obliczSileRycerza(sila, swojeZetony, zetonyPrzeciwnika) {
 
     let wynik = sila;
 
-    zetony.forEach(zeton => {
+    swojeZetony.forEach(zeton => {
 
         if (zeton.typ === "atak") {
             wynik += zeton.wartosc;
@@ -791,6 +793,18 @@ function obliczSileRycerza(sila, zetony) {
 
         if (zeton.typ === "atak_x2") {
             wynik += 4;
+        }
+
+    });
+
+    zetonyPrzeciwnika.forEach(zeton => {
+
+        if (zeton.typ === "obrona") {
+            wynik -= zeton.wartosc;
+        }
+
+        if (zeton.typ === "obrona_x2") {
+            wynik -= 4;
         }
 
     });
