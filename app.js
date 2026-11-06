@@ -768,7 +768,8 @@ function rozpocznijWyborZetonow() {
     wyborPierwszegoRycerza = [];
     wyborDrugiegoRycerza = [];
     aktualnyWyborRycerza = 1;
-
+    document.getElementById("zatwierdz-wybor-pojedynku").style.display =
+    "block";
     pokazZetonyPojedynku();
 
     document.getElementById("wynik-zetonow-pojedynku").textContent =
