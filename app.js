@@ -848,46 +848,88 @@ function rozstrzygnijPojedynek() {
 }
 // ZATWIERDZANIE WYBORU ŻETONÓW
 
+function zatwierdzWyborPojedynku() {
+
+    const wybrane = Array.from(
+        document.querySelectorAll(
+            "#ekran-zetonow-pojedynku .wybrany"
+        )
+    ).map(zeton => ({
+        typ: zeton.dataset.typ,
+        wartosc: Number(zeton.dataset.wartosc)
+    }));
+
+    if (aktualnyWyborRycerza === 1) {
+
+        wyborPierwszegoRycerza = wybrane;
+        aktualnyWyborRycerza = 2;
+
+        document.querySelectorAll(
+            "#ekran-zetonow-pojedynku .wybrany"
+        ).forEach(zeton => {
+            zeton.classList.remove("wybrany");
+        });
+
+        document.getElementById("wynik-zetonow-pojedynku").textContent =
+            "Wybór pierwszego rycerza zapisany.";
+
+        document.getElementById("zatwierdz-wybor-pojedynku").style.display =
+            "none";
+
+        document.getElementById("przejdz-do-drugiego-gracza").style.display =
+            "block";
+
+    } else {
+
+        wyborDrugiegoRycerza = wybrane;
+
+        document.getElementById("wynik-zetonow-pojedynku").textContent =
+            "Wybory obu rycerzy zostały zapisane!";
+
+        document.getElementById("zatwierdz-wybor-pojedynku").style.display =
+            "none";
+
+        document.getElementById("przejdz-do-drugiego-gracza").style.display =
+            "none";
+
+        setTimeout(() => {
+            rozstrzygnijPojedynek();
+        }, 1500);
+    }
+}
+
 document.getElementById("zatwierdz-wybor-pojedynku")
+    .addEventListener("click", zatwierdzWyborPojedynku);
+
+
+// PRZEJŚCIE DO DRUGIEGO GRACZA
+
+document.getElementById("przejdz-do-drugiego-gracza")
     .addEventListener("click", () => {
 
-        const wybrane = Array.from(
-            document.querySelectorAll(
-                "#ekran-zetonow-pojedynku .wybrany"
-            )
-        ).map(zeton => ({
-            typ: zeton.dataset.typ,
-            wartosc: Number(zeton.dataset.wartosc)
-        }));
+        document.getElementById("wynik-zetonow-pojedynku").textContent =
+            "TERAZ DRUGI GRACZ WYBIERA SWOJE ŻETONY.";
 
-        if (aktualnyWyborRycerza === 1) {
+        document.getElementById("przejdz-do-drugiego-gracza").style.display =
+            "none";
 
-            wyborPierwszegoRycerza = wybrane;
-            aktualnyWyborRycerza = 2;
+        document.getElementById("zatwierdz-wybor-pojedynku").style.display =
+            "block";
+    });
 
-            document.querySelectorAll(
-                "#ekran-zetonow-pojedynku .wybrany"
-            ).forEach(zeton => {
-                zeton.classList.remove("wybrany");
-            });
 
-            document.getElementById("wynik-zetonow-pojedynku").textContent =
-                "Teraz drugi rycerz wybiera swoje żetony.";
+// REZYGNACJA Z ŻETONÓW
 
-        } else {
+document.getElementById("rezygnuje-z-zetonow-pojedynku")
+    .addEventListener("click", () => {
 
-            wyborDrugiegoRycerza = wybrane;
+        document.querySelectorAll(
+            "#ekran-zetonow-pojedynku .wybrany"
+        ).forEach(zeton => {
+            zeton.classList.remove("wybrany");
+        });
 
-            document.getElementById("wynik-zetonow-pojedynku").textContent =
-           "Wybory obu rycerzy zostały zapisane!";
-
-            document.getElementById("zatwierdz-wybor-pojedynku").style.display =
-           "none";
-
-setTimeout(() => {
-    rozstrzygnijPojedynek();
-}, 1500);
-        }
+        zatwierdzWyborPojedynku();
     });
 // KOLEJ DRUGIEGO RYCERZA
 
