@@ -568,6 +568,50 @@ przycisk.addEventListener("click", async () => {
         wynik.textContent = "Błąd NFC: " + error.message;
     }
 });
+// TWORZENIE PRZYCISKÓW ŻETONÓW POJEDYNKU
+
+function pokazZetonyPojedynku() {
+
+    const atak = document.getElementById("atak-pojedynku");
+    const obrona = document.getElementById("obrona-pojedynku");
+    const specjalne = document.getElementById("specjalne-pojedynku");
+
+    atak.classList.add("zetony-wyboru");
+    obrona.classList.add("zetony-wyboru");
+    specjalne.classList.add("zetony-wyboru");
+
+    atak.innerHTML = "";
+    obrona.innerHTML = "";
+    specjalne.innerHTML = "";
+
+    for (let i = 1; i <= 5; i++) {
+        dodajZeton(atak, "miecz" + i + ".jpg", "atak", i);
+        dodajZeton(obrona, "tarcza" + i + ".jpg", "obrona", i);
+    }
+
+    dodajZeton(specjalne, "atak_x2.jpg", "atak_x2", 4);
+    dodajZeton(specjalne, "obrona_x2.jpg", "obrona_x2", 4);
+}
+
+function dodajZeton(kontener, plik, typ, wartosc) {
+
+    const przycisk = document.createElement("button");
+    przycisk.className = "zeton-wyboru";
+    przycisk.dataset.typ = typ;
+    przycisk.dataset.wartosc = wartosc;
+
+    const obraz = document.createElement("img");
+    obraz.src = "przedmioty/" + plik;
+    obraz.alt = plik;
+
+    przycisk.appendChild(obraz);
+
+    przycisk.addEventListener("click", () => {
+        przycisk.classList.toggle("wybrany");
+    });
+
+    kontener.appendChild(przycisk);
+}
 // FILMY LOSUJĄCE SIŁĘ ATAKU
 
 const filmySilyAtaku = [
