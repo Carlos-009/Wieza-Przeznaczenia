@@ -568,6 +568,15 @@ przycisk.addEventListener("click", async () => {
         wynik.textContent = "Błąd NFC: " + error.message;
     }
 });
+// FILMY LOSUJĄCE SIŁĘ ATAKU
+
+const filmySilyAtaku = [
+    "https://archive.org/download/sila_ataku2_202611/sila_ataku1.mp4",
+    "https://archive.org/download/sila_ataku2_202611/sila_ataku2.mp4",
+    "https://archive.org/download/sila_ataku2_202611/sila_ataku3.mp4",
+    "https://archive.org/download/sila_ataku2_202611/sila_ataku4.mp4",
+    "https://archive.org/download/sila_ataku2_202611/sila_ataku5.mp4"
+];
 // WYBÓR RODZAJU WALKI
 
 document.getElementById("wybierz-walke-rycerzy")
