@@ -725,6 +725,15 @@ function losujSileAtaku(numerRycerza) {
             document.getElementById("wynik-pojedynku").innerHTML =
     "SIŁA PIERWSZEGO RYCERZA: " + silaPierwszegoRycerza +
     "<br>SIŁA DRUGIEGO RYCERZA: " + silaDrugiegoRycerza;
+                document.getElementById("kolej-przeciwnika").style.display =
+                "none";
+
+            document.getElementById("oblicz-pojedynek").style.display =
+                "none";
+
+            setTimeout(() => {
+                rozpocznijWyborZetonow();
+            }, 1500);
         }
     };
 
