@@ -571,6 +571,13 @@ document.getElementById("wybierz-walke-rycerzy")
         document.getElementById("wynik-pojedynku").textContent =
             "Pierwszy rycerz przygotowuje się do walki...";
     });
+// POWRÓT Z WYBORU WALKI
+
+document.getElementById("powrot-z-walki")
+    .addEventListener("click", () => {
+        pokazEkran("ekran-gry");
+        wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
+    });
 // INTRO PRZY PIERWSZYM URUCHOMIENIU
 
 window.addEventListener("load", () => {
