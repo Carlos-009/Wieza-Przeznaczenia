@@ -767,6 +767,7 @@ function rozpocznijWyborZetonow() {
 
     pokazEkran("ekran-zetonow-pojedynku");
 }
+
 // KOLEJ DRUGIEGO RYCERZA
 
 document.getElementById("kolej-przeciwnika")
