@@ -269,6 +269,69 @@
     border-color: gold;
     background: #fff3b0;
 }
+  /* NOWY WYGLĄD WYBORU ŻETONÓW */
+
+#ekran-zetonow-pojedynku .wybor-ataku-obrony {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+#ekran-zetonow-pojedynku .grupa-wyboru {
+    background: rgba(238, 225, 197, 0.15);
+    border-radius: 12px;
+    padding: 8px;
+}
+
+#ekran-zetonow-pojedynku .grupa-wyboru > img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+#ekran-zetonow-pojedynku .grupa-wyboru h2 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+#ekran-zetonow-pojedynku .zetony-wyboru {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin: 8px 0;
+}
+
+#ekran-zetonow-pojedynku .zeton-wyboru {
+    width: 42px;
+    min-width: 42px;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: #eee1c5;
+}
+
+#ekran-zetonow-pojedynku .zeton-wyboru img {
+    width: 100%;
+    display: block;
+}
+
+#ekran-zetonow-pojedynku .zeton-wyboru.wybrany {
+    border: 3px solid red;
+    background: #fff3b0;
+}
+
+#ekran-zetonow-pojedynku #specjalne-pojedynku {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#ekran-zetonow-pojedynku #rezygnuje-z-zetonow-pojedynku {
+    background: #6b2929;
+}
     </style>
 </head>
 
