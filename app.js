@@ -612,9 +612,65 @@ function dodajZeton(kontener, plik, typ, wartosc) {
 
     przycisk.appendChild(obraz);
 
-    przycisk.addEventListener("click", () => {
-        przycisk.classList.toggle("wybrany");
-    });
+przycisk.addEventListener("click", () => {
+
+    const wybrane = document.querySelectorAll(
+        "#ekran-zetonow-pojedynku .wybrany"
+    );
+
+    const zwykly = wybrane.length > 0
+        ? Array.from(wybrane).find(el =>
+            el.dataset.typ === "atak" ||
+            el.dataset.typ === "obrona"
+        )
+        : null;
+
+    const specjalny = wybrane.length > 0
+        ? Array.from(wybrane).find(el =>
+            el.dataset.typ === "atak_x2" ||
+            el.dataset.typ === "obrona_x2"
+        )
+        : null;
+
+    if (przycisk.classList.contains("wybrany")) {
+        przycisk.classList.remove("wybrany");
+        return;
+    }
+
+    if (typ === "atak" || typ === "obrona") {
+
+        if (zwykly) {
+            zwykly.classList.remove("wybrany");
+        }
+
+        if (specjalny &&
+            !(
+                (typ === "atak" && specjalny.dataset.typ === "atak_x2") ||
+                (typ === "obrona" && specjalny.dataset.typ === "obrona_x2")
+            )
+        ) {
+            specjalny.classList.remove("wybrany");
+        }
+
+    } else {
+
+        if (specjalny) {
+            specjalny.classList.remove("wybrany");
+        }
+
+        if (zwykly) {
+            const zgodny =
+                (typ === "atak_x2" && zwykly.dataset.typ === "atak") ||
+                (typ === "obrona_x2" && zwykly.dataset.typ === "obrona");
+
+            if (!zgodny) {
+                return;
+            }
+        }
+    }
+
+    przycisk.classList.add("wybrany");
+});
 
     kontener.appendChild(przycisk);
 }
