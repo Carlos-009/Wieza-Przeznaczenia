@@ -597,79 +597,73 @@ function pokazZetonyPojedynku() {
     dodajZeton(specjalne, "atak_x2.jpg", "atak_x2", 4);
     dodajZeton(specjalne, "obrona_x2.jpg", "obrona_x2", 4);
 }
-
 function dodajZeton(kontener, plik, typ, wartosc) {
-
     const przycisk = document.createElement("button");
     przycisk.className = "zeton-wyboru";
     przycisk.dataset.typ = typ;
     przycisk.dataset.wartosc = wartosc;
 
-    const obraz = document.createElement("img");
-    obraz.src = "przedmioty/" + plik;
-    obraz.alt = plik;
+    if (typ === "atak" || typ === "obrona") {
+        przycisk.textContent = wartosc;
+    } else {
+        const obraz = document.createElement("img");
+        obraz.src = "przedmioty/" + plik;
+        obraz.alt = plik;
+        przycisk.appendChild(obraz);
+    }
 
-    przycisk.appendChild(obraz);
+    przycisk.addEventListener("click", () => {
+        const wybrane = document.querySelectorAll(
+            "#ekran-zetonow-pojedynku .wybrany"
+        );
 
-przycisk.addEventListener("click", () => {
-
-    const wybrane = document.querySelectorAll(
-        "#ekran-zetonow-pojedynku .wybrany"
-    );
-
-    const zwykly = wybrane.length > 0
-        ? Array.from(wybrane).find(el =>
+        const zwykly = Array.from(wybrane).find(el =>
             el.dataset.typ === "atak" ||
             el.dataset.typ === "obrona"
-        )
-        : null;
+        );
 
-    const specjalny = wybrane.length > 0
-        ? Array.from(wybrane).find(el =>
+        const specjalny = Array.from(wybrane).find(el =>
             el.dataset.typ === "atak_x2" ||
             el.dataset.typ === "obrona_x2"
-        )
-        : null;
+        );
 
-    if (przycisk.classList.contains("wybrany")) {
-        przycisk.classList.remove("wybrany");
-        return;
-    }
-
-    if (typ === "atak" || typ === "obrona") {
-
-        if (zwykly) {
-            zwykly.classList.remove("wybrany");
+        if (przycisk.classList.contains("wybrany")) {
+            przycisk.classList.remove("wybrany");
+            return;
         }
 
-        if (specjalny &&
-            !(
-                (typ === "atak" && specjalny.dataset.typ === "atak_x2") ||
-                (typ === "obrona" && specjalny.dataset.typ === "obrona_x2")
-            )
-        ) {
-            specjalny.classList.remove("wybrany");
-        }
+        if (typ === "atak" || typ === "obrona") {
+            if (zwykly) {
+                zwykly.classList.remove("wybrany");
+            }
 
-    } else {
+            if (specjalny &&
+                !(
+                    (typ === "atak" && specjalny.dataset.typ === "atak_x2") ||
+                    (typ === "obrona" && specjalny.dataset.typ === "obrona_x2")
+                )
+            ) {
+                specjalny.classList.remove("wybrany");
+            }
 
-        if (specjalny) {
-            specjalny.classList.remove("wybrany");
-        }
+        } else {
+            if (specjalny) {
+                specjalny.classList.remove("wybrany");
+            }
 
-        if (zwykly) {
-            const zgodny =
-                (typ === "atak_x2" && zwykly.dataset.typ === "atak") ||
-                (typ === "obrona_x2" && zwykly.dataset.typ === "obrona");
+            if (zwykly) {
+                const zgodny =
+                    (typ === "atak_x2" && zwykly.dataset.typ === "atak") ||
+                    (typ === "obrona_x2" && zwykly.dataset.typ === "obrona");
 
-            if (!zgodny) {
-                return;
+                if (!zgodny) {
+                    return;
+                }
             }
         }
-    }
 
-    przycisk.classList.add("wybrany");
-});
+        przycisk.classList.add("wybrany");
+    });
 
     kontener.appendChild(przycisk);
 }
