@@ -752,7 +752,21 @@ document.getElementById("wybierz-walke-rycerzy")
 
         losujSileAtaku(1);
     });
+// ROZPOCZĘCIE WYBORU ŻETONÓW
 
+function rozpocznijWyborZetonow() {
+
+    wyborPierwszegoRycerza = [];
+    wyborDrugiegoRycerza = [];
+    aktualnyWyborRycerza = 1;
+
+    pokazZetonyPojedynku();
+
+    document.getElementById("wynik-zetonow-pojedynku").textContent =
+        "Pierwszy rycerz wybiera swoje żetony.";
+
+    pokazEkran("ekran-zetonow-pojedynku");
+}
 // KOLEJ DRUGIEGO RYCERZA
 
 document.getElementById("kolej-przeciwnika")
