@@ -577,7 +577,6 @@ let aktualnyWyborRycerza = 1;
 // TWORZENIE PRZYCISKÓW ŻETONÓW POJEDYNKU
 
 function pokazZetonyPojedynku() {
-
     const atak = document.getElementById("atak-pojedynku");
     const obrona = document.getElementById("obrona-pojedynku");
     const specjalne = document.getElementById("specjalne-pojedynku");
