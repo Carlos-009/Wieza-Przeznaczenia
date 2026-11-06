@@ -260,16 +260,7 @@
     cursor: pointer;
 }
 
-#ekran-zetonow-pojedynku .zeton-wyboru img {
-    width: 100%;
-    display: block;
-}
-
-#ekran-zetonow-pojedynku .zeton-wyboru.wybrany {
-    border-color: gold;
-    background: #fff3b0;
-}
-  /* NOWY WYGLĄD WYBORU ŻETONÓW */
+/* WYBÓR ŻETONÓW - POJEDYNEK */
 
 #ekran-zetonow-pojedynku .wybor-ataku-obrony {
     display: grid;
@@ -304,12 +295,16 @@
 }
 
 #ekran-zetonow-pojedynku .zeton-wyboru {
+    position: relative;
     width: 42px;
     min-width: 42px;
     padding: 5px;
     border: 2px solid transparent;
     border-radius: 8px;
     background: #eee1c5;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 #ekran-zetonow-pojedynku .zeton-wyboru img {
@@ -322,11 +317,26 @@
     background: #fff3b0;
 }
 
+#ekran-zetonow-pojedynku .zeton-wyboru.wybrany::after {
+    content: "✓";
+    position: absolute;
+    top: -9px;
+    right: -5px;
+    color: red;
+    font-size: 19px;
+    font-weight: bold;
+}
+
 #ekran-zetonow-pojedynku #specjalne-pojedynku {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
+}
+
+#ekran-zetonow-pojedynku #specjalne-pojedynku .zeton-wyboru {
+    width: 65px;
+    min-width: 65px;
 }
 
 #ekran-zetonow-pojedynku #rezygnuje-z-zetonow-pojedynku {
