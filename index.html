@@ -241,6 +241,34 @@
         transform: scale(1);
     }
         }
+        /* WYBÓR ŻETONÓW W POJEDYNKU */
+
+#ekran-zetonow-pojedynku .zetony-wyboru {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px 0 22px;
+}
+
+#ekran-zetonow-pojedynku .zeton-wyboru {
+    width: 90px;
+    padding: 6px;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    background: #eee1c5;
+    cursor: pointer;
+}
+
+#ekran-zetonow-pojedynku .zeton-wyboru img {
+    width: 100%;
+    display: block;
+}
+
+#ekran-zetonow-pojedynku .zeton-wyboru.wybrany {
+    border-color: gold;
+    background: #fff3b0;
+}
     </style>
 </head>
 
@@ -518,6 +546,30 @@
 
     </div>
 </section>
+    <section id="ekran-zetonow-pojedynku" class="ekran">
+    <div class="panel">
+
+        <h1>⚔️ WYBÓR ŻETONÓW</h1>
+
+        <div id="wynik-zetonow-pojedynku">
+            Pierwszy rycerz wybiera żetony.
+        </div>
+
+        <h2>Atak</h2>
+        <div id="atak-pojedynku"></div>
+
+        <h2>Obrona</h2>
+        <div id="obrona-pojedynku"></div>
+
+        <h2>Żetony specjalne</h2>
+        <div id="specjalne-pojedynku"></div>
+
+        <button class="menu-przycisk" id="zatwierdz-wybor-pojedynku">
+            ZATWIERDŹ WYBÓR
+        </button>
+
+    </div>
+    </section>
     <video id="video" controls playsinline></video>
 
     <button class="maly-przycisk" id="wlacz-dzwiek">
