@@ -776,7 +776,45 @@ function rozpocznijWyborZetonow() {
 
     pokazEkran("ekran-zetonow-pojedynku");
 }
+// ZATWIERDZANIE WYBORU ŻETONÓW
 
+document.getElementById("zatwierdz-wybor-pojedynku")
+    .addEventListener("click", () => {
+
+        const wybrane = Array.from(
+            document.querySelectorAll(
+                "#ekran-zetonow-pojedynku .wybrany"
+            )
+        ).map(zeton => ({
+            typ: zeton.dataset.typ,
+            wartosc: Number(zeton.dataset.wartosc)
+        }));
+
+        if (aktualnyWyborRycerza === 1) {
+
+            wyborPierwszegoRycerza = wybrane;
+            aktualnyWyborRycerza = 2;
+
+            document.querySelectorAll(
+                "#ekran-zetonow-pojedynku .wybrany"
+            ).forEach(zeton => {
+                zeton.classList.remove("wybrany");
+            });
+
+            document.getElementById("wynik-zetonow-pojedynku").textContent =
+                "Teraz drugi rycerz wybiera swoje żetony.";
+
+        } else {
+
+            wyborDrugiegoRycerza = wybrane;
+
+            document.getElementById("wynik-zetonow-pojedynku").textContent =
+                "Wybory obu rycerzy zostały zapisane!";
+
+            document.getElementById("zatwierdz-wybor-pojedynku").style.display =
+                "none";
+        }
+    });
 // KOLEJ DRUGIEGO RYCERZA
 
 document.getElementById("kolej-przeciwnika")
