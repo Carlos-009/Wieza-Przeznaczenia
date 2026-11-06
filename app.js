@@ -577,6 +577,61 @@ const filmySilyAtaku = [
     "https://archive.org/download/sila_ataku2_202611/sila_ataku4.mp4",
     "https://archive.org/download/sila_ataku2_202611/sila_ataku5.mp4"
 ];
+// WYNIKI SIŁY ATAKU RYCERZY
+
+let silaPierwszegoRycerza = 0;
+let silaDrugiegoRycerza = 0;
+
+function losujSileAtaku(numerRycerza) {
+
+    const sila = Math.floor(Math.random() * 5) + 1;
+    const adres = filmySilyAtaku[sila - 1];
+
+    video.pause();
+    video.onended = null;
+    video.onerror = null;
+
+    video.src = adres;
+    video.loop = false;
+    video.controls = false;
+    video.muted = false;
+    video.classList.add("odtwarzanie");
+
+    video.onended = () => {
+
+        video.classList.remove("odtwarzanie");
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+
+        if (numerRycerza === 1) {
+            silaPierwszegoRycerza = sila;
+
+            document.getElementById("wynik-pojedynku").textContent =
+                "SIŁA PIERWSZEGO RYCERZA: " + sila;
+
+            document.getElementById("kolej-przeciwnika").style.display =
+                "block";
+
+        } else {
+            silaDrugiegoRycerza = sila;
+
+            document.getElementById("wynik-pojedynku").textContent =
+                "SIŁA PIERWSZEGO RYCERZA: " + silaPierwszegoRycerza +
+                "\nSIŁA DRUGIEGO RYCERZA: " + silaDrugiegoRycerza;
+        }
+    };
+
+    video.onerror = () => {
+        video.classList.remove("odtwarzanie");
+        document.getElementById("wynik-pojedynku").textContent =
+            "Nie udało się odtworzyć filmu.";
+    };
+
+    video.play().catch(error => {
+        console.log("Błąd filmu siły ataku:", error);
+    });
+}
 // WYBÓR RODZAJU WALKI
 
 document.getElementById("wybierz-walke-rycerzy")
