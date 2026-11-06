@@ -578,6 +578,29 @@ document.getElementById("powrot-z-walki")
         pokazEkran("ekran-gry");
         wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
     });
+// ROZPOCZĘCIE FINAŁU ZE SMOKIEM
+
+document.getElementById("wybierz-final-smok")
+    .addEventListener("click", () => {
+        pokazEkran("ekran-finalu");
+
+        document.getElementById("wynik-finalu").textContent =
+            "Wybierz kolor swojego rycerza.";
+    });
+// WYBÓR KOLORU RYCERZA DO FINAŁU
+
+let wybranyKolorRycerza = null;
+
+document.querySelectorAll("[data-rycerz]").forEach(button => {
+    button.addEventListener("click", () => {
+
+        wybranyKolorRycerza = button.dataset.rycerz;
+
+        document.getElementById("wynik-finalu").textContent =
+            "Wybrany rycerz: " + wybranyKolorRycerza.toUpperCase() +
+            ". Przygotuj się do walki ze smokiem!";
+    });
+});
 // INTRO PRZY PIERWSZYM URUCHOMIENIU
 
 window.addEventListener("load", () => {
