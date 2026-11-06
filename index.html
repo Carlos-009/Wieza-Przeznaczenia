@@ -548,28 +548,53 @@
 </section>
     <section id="ekran-zetonow-pojedynku" class="ekran">
     <div class="panel">
+<section id="ekran-zetonow-pojedynku" class="ekran">
+    <div class="panel">
 
         <h1>⚔️ WYBÓR ŻETONÓW</h1>
 
         <div id="wynik-zetonow-pojedynku">
-            Pierwszy rycerz wybiera żetony.
+            Pierwszy rycerz wybiera swoje żetony.
         </div>
 
-        <h2>Atak</h2>
-        <div id="atak-pojedynku"></div>
+        <div class="wybor-ataku-obrony">
 
-        <h2>Obrona</h2>
-        <div id="obrona-pojedynku"></div>
+            <div class="grupa-wyboru">
+                <img src="przedmioty/miecz1.jpg" alt="Atak">
+                <h2>ATAK</h2>
+                <div id="atak-pojedynku"></div>
+            </div>
 
-        <h2>Żetony specjalne</h2>
+            <div class="grupa-wyboru">
+                <img src="przedmioty/tarcza1.jpg" alt="Obrona">
+                <h2>OBRONA</h2>
+                <div id="obrona-pojedynku"></div>
+            </div>
+
+        </div>
+
+        <h2>DODAJESZ ŻETON SPECJALNY?</h2>
+
         <div id="specjalne-pojedynku"></div>
 
-        <button class="menu-przycisk" id="zatwierdz-wybor-pojedynku">
+        <button class="menu-przycisk"
+            id="rezygnuje-z-zetonow-pojedynku">
+            REZYGNUJĘ Z ŻETONÓW
+        </button>
+
+        <button class="menu-przycisk"
+            id="zatwierdz-wybor-pojedynku">
             ZATWIERDŹ WYBÓR
         </button>
 
+        <button class="menu-przycisk"
+            id="przejdz-do-drugiego-gracza"
+            style="display:none">
+            TERAZ DRUGI GRACZ WYBIERA ŻETONY
+        </button>
+
     </div>
-    </section>
+</section>
     <video id="video" controls playsinline></video>
 
     <button class="maly-przycisk" id="wlacz-dzwiek">
