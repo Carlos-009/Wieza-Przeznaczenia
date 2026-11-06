@@ -568,6 +568,12 @@ przycisk.addEventListener("click", async () => {
         wynik.textContent = "Błąd NFC: " + error.message;
     }
 });
+// WYBORY ŻETONÓW OBU RYCERZY
+
+let wyborPierwszegoRycerza = [];
+let wyborDrugiegoRycerza = [];
+
+let aktualnyWyborRycerza = 1;
 // TWORZENIE PRZYCISKÓW ŻETONÓW POJEDYNKU
 
 function pokazZetonyPojedynku() {
