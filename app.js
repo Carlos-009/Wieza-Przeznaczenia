@@ -636,9 +636,25 @@ function losujSileAtaku(numerRycerza) {
 
 document.getElementById("wybierz-walke-rycerzy")
     .addEventListener("click", () => {
+
         pokazEkran("ekran-pojedynku");
-        document.getElementById("wynik-pojedynku").textContent =
-            "Pierwszy rycerz przygotowuje się do walki...";
+
+        silaPierwszegoRycerza = 0;
+        silaDrugiegoRycerza = 0;
+
+        document.getElementById("kolej-przeciwnika").style.display = "none";
+
+        losujSileAtaku(1);
+    });
+
+// KOLEJ DRUGIEGO RYCERZA
+
+document.getElementById("kolej-przeciwnika")
+    .addEventListener("click", () => {
+
+        document.getElementById("kolej-przeciwnika").style.display = "none";
+
+        losujSileAtaku(2);
     });
 // POWRÓT Z WYBORU WALKI
 
