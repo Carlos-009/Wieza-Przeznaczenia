@@ -544,9 +544,14 @@ przycisk.addEventListener("click", async () => {
 
 } else if (tekst === "przedmiot") {
     losujPrzedmiot();
+
 } else if (tekst === "czarownica") {
     losujCzarownice();
-                        
+
+} else if (tekst === "walka") {
+    pokazEkran("ekran-wyboru-walki");
+    wynik.textContent = "Wybierz, jaką walkę teraz stoczysz.";
+
 } else {
     wynik.textContent = "Nieznany tag: " + tekst;
 }
