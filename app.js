@@ -616,9 +616,9 @@ function losujSileAtaku(numerRycerza) {
         } else {
             silaDrugiegoRycerza = sila;
 
-            document.getElementById("wynik-pojedynku").textContent =
-                "SIŁA PIERWSZEGO RYCERZA: " + silaPierwszegoRycerza +
-                "\nSIŁA DRUGIEGO RYCERZA: " + silaDrugiegoRycerza;
+            document.getElementById("wynik-pojedynku").innerHTML =
+    "SIŁA PIERWSZEGO RYCERZA: " + silaPierwszegoRycerza +
+    "<br>SIŁA DRUGIEGO RYCERZA: " + silaDrugiegoRycerza;
         }
     };
 
