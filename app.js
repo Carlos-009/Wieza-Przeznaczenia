@@ -932,6 +932,7 @@ document.getElementById("rezygnuje-z-zetonow-pojedynku")
 
         zatwierdzWyborPojedynku();
     });
+
 // KOLEJ DRUGIEGO RYCERZA
 
 document.getElementById("kolej-przeciwnika")
@@ -940,6 +941,15 @@ document.getElementById("kolej-przeciwnika")
         document.getElementById("kolej-przeciwnika").style.display = "none";
 
         losujSileAtaku(2);
+    });
+
+// POWRÓT Z WYBORU ŻETONÓW DO GRY
+
+document.getElementById("powrot-z-zetonow-pojedynku")
+    .addEventListener("click", () => {
+
+        pokazEkran("ekran-gry");
+        wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
     });
 
 // POWRÓT Z POJEDYNKU DO GRY
