@@ -764,7 +764,6 @@ function rozpocznijWyborZetonow() {
     pokazZetonyPojedynku();
 
     document.getElementById("zatwierdz-wybor-pojedynku").style.display = "block";
-    document.getElementById("przejdz-do-drugiego-gracza").style.display = "none";
     document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display = "block";
 
     document.getElementById("wynik-zetonow-pojedynku").textContent =
