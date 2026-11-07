@@ -999,6 +999,15 @@ document.querySelectorAll("[data-rycerz]").forEach(button => {
     });
 });
 
+// POWRÓT Z WYBORU ŻETONÓW FINAŁU
+
+document.getElementById("powrot-z-zetonow-finalu")
+    .addEventListener("click", () => {
+
+        pokazEkran("ekran-gry");
+        wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
+    });
+
 // POWRÓT Z FINAŁU DO GRY
 
 document.getElementById("powrot-finalu")
