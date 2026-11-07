@@ -800,14 +800,12 @@ function rozstrzygnijPojedynek() {
 
     const wynikPierwszego = obliczSileRycerza(
         silaPierwszegoRycerza,
-        wyborPierwszegoRycerza,
-        wyborDrugiegoRycerza
+        wyborPierwszegoRycerza
     );
 
     const wynikDrugiego = obliczSileRycerza(
         silaDrugiegoRycerza,
-        wyborDrugiegoRycerza,
-        wyborPierwszegoRycerza
+        wyborDrugiegoRycerza
     );
 
     pokazEkran("ekran-pojedynku");
@@ -833,9 +831,10 @@ function rozstrzygnijPojedynek() {
         wynikWalki.innerHTML =
             "PIERWSZY RYCERZ: " + wynikPierwszego +
             "<br>DRUGI RYCERZ: " + wynikDrugiego +
-            "<br><br>⚖️ REMIS! ATACZĄCY COFA SIĘ O JEDNO POLE.";
+            "<br><br>⚖️ REMIS! ATAKUJĄCY COFA SIĘ O JEDNO POLE.";
     }
 }
+
 // ZATWIERDZANIE WYBORU ŻETONÓW
 
 function zatwierdzWyborPojedynku() {
