@@ -765,7 +765,7 @@ function rozpocznijWyborZetonow() {
 
     document.getElementById("zatwierdz-wybor-pojedynku").style.display = "block";
     document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display = "block";
-
+    document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display = "block";
     document.getElementById("wynik-zetonow-pojedynku").textContent =
         "Pierwszy rycerz wybiera swoje żetony.";
 
