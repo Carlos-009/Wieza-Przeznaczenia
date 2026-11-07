@@ -988,6 +988,20 @@ document.querySelectorAll("[data-rycerz]").forEach(button => {
             ". Przygotuj się do walki ze smokiem!";
     });
 });
+
+// POWRÓT Z FINAŁU DO GRY
+
+document.getElementById("powrot-finalu")
+    .addEventListener("click", () => {
+
+        zatrzymajVideo();
+        video.onended = null;
+        video.onerror = null;
+
+        pokazEkran("ekran-gry");
+        wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
+    });
+
 // INTRO PRZY PIERWSZYM URUCHOMIENIU
 
 window.addEventListener("load", () => {
