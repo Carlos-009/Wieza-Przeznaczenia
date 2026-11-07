@@ -892,27 +892,20 @@ function zatwierdzWyborPojedynku() {
             zeton.classList.remove("wybrany");
         });
 
-        document.getElementById("wynik-zetonow-pojedynku").textContent =
-            "Wybór pierwszego rycerza zapisany.";
-
-        document.getElementById("zatwierdz-wybor-pojedynku").style.display =
-            "none";
-
-        document.getElementById("przejdz-do-drugiego-gracza").style.display =
-            "block";
+        pokazEkran("ekran-przekazania-telefonu");
 
     } else {
 
         wyborDrugiegoRycerza = wybrane;
 
-        document.getElementById("wynik-zetonow-pojedynku").textContent =
-            "Wybory obu rycerzy zostały zapisane!";
-
         document.getElementById("zatwierdz-wybor-pojedynku").style.display =
             "none";
 
-        document.getElementById("przejdz-do-drugiego-gracza").style.display =
+        document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display =
             "none";
+
+        document.getElementById("wynik-zetonow-pojedynku").textContent =
+            "Wybory obu rycerzy zostały zapisane!";
 
         setTimeout(() => {
             rozstrzygnijPojedynek();
