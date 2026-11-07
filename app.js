@@ -915,7 +915,23 @@ function zatwierdzWyborPojedynku() {
 
 document.getElementById("zatwierdz-wybor-pojedynku")
     .addEventListener("click", zatwierdzWyborPojedynku);
+document.getElementById("rozpocznij-wybor-drugiego")
+    .addEventListener("click", () => {
 
+        document.getElementById("wynik-zetonow-pojedynku").textContent =
+            "Drugi rycerz wybiera swoje żetony.";
+
+        document.getElementById("zatwierdz-wybor-pojedynku").style.display =
+            "block";
+
+        document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display =
+            "block";
+
+        document.getElementById("przejdz-do-drugiego-gracza").style.display =
+            "none";
+
+        pokazEkran("ekran-zetonow-pojedynku");
+    });
 
 // PRZEJŚCIE DO DRUGIEGO GRACZA
 
