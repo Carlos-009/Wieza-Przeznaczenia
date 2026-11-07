@@ -808,32 +808,51 @@ function rozstrzygnijPojedynek() {
         wyborDrugiegoRycerza
     );
 
-    pokazEkran("ekran-pojedynku");
+    const opisPierwszego = opiszZetonyRycerza(
+        wyborPierwszegoRycerza
+    );
 
-    const wynikWalki = document.getElementById("wynik-pojedynku");
+    const opisDrugiego = opiszZetonyRycerza(
+        wyborDrugiegoRycerza
+    );
+
+    let rezultat = "";
 
     if (wynikPierwszego > wynikDrugiego) {
 
-        wynikWalki.innerHTML =
-            "PIERWSZY RYCERZ: " + wynikPierwszego +
-            "<br>DRUGI RYCERZ: " + wynikDrugiego +
+        rezultat =
             "<br><br>🏆 WYGRYWA PIERWSZY RYCERZ!";
 
     } else if (wynikDrugiego > wynikPierwszego) {
 
-        wynikWalki.innerHTML =
-            "PIERWSZY RYCERZ: " + wynikPierwszego +
-            "<br>DRUGI RYCERZ: " + wynikDrugiego +
+        rezultat =
             "<br><br>🏆 WYGRYWA DRUGI RYCERZ!";
 
     } else {
 
-        wynikWalki.innerHTML =
-            "PIERWSZY RYCERZ: " + wynikPierwszego +
-            "<br>DRUGI RYCERZ: " + wynikDrugiego +
+        rezultat =
             "<br><br>⚖️ REMIS! ATAKUJĄCY COFA SIĘ O JEDNO POLE.";
     }
+
+    pokazEkran("ekran-pojedynku");
+
+    document.getElementById("wynik-pojedynku").innerHTML =
+
+        "<h2>PIERWSZY RYCERZ</h2>" +
+        "Wylosowana siła ataku: " + silaPierwszegoRycerza + "<br>" +
+        opisPierwszego +
+        "<strong>WYNIK: " + wynikPierwszego + "</strong>" +
+
+        "<hr>" +
+
+        "<h2>DRUGI RYCERZ</h2>" +
+        "Wylosowana siła ataku: " + silaDrugiegoRycerza + "<br>" +
+        opisDrugiego +
+        "<strong>WYNIK: " + wynikDrugiego + "</strong>" +
+
+        rezultat;
 }
+
 function opiszZetonyRycerza(zetony) {
 
     const atak = zetony.find(z => z.typ === "atak");
