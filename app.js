@@ -935,20 +935,6 @@ document.getElementById("rozpocznij-wybor-drugiego")
 
 // PRZEJŚCIE DO DRUGIEGO GRACZA
 
-document.getElementById("przejdz-do-drugiego-gracza")
-    .addEventListener("click", () => {
-
-        document.getElementById("wynik-zetonow-pojedynku").textContent =
-            "TERAZ DRUGI GRACZ WYBIERA SWOJE ŻETONY.";
-
-        document.getElementById("przejdz-do-drugiego-gracza").style.display =
-            "none";
-
-        document.getElementById("zatwierdz-wybor-pojedynku").style.display =
-            "block";
-    });
-
-
 // REZYGNACJA Z ŻETONÓW
 
 document.getElementById("rezygnuje-z-zetonow-pojedynku")
