@@ -926,9 +926,6 @@ document.getElementById("rozpocznij-wybor-drugiego")
         document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display =
             "block";
 
-        document.getElementById("przejdz-do-drugiego-gracza").style.display =
-            "none";
-
         pokazEkran("ekran-zetonow-pojedynku");
     });
 
