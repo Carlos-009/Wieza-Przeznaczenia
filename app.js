@@ -834,6 +834,20 @@ function rozstrzygnijPojedynek() {
             "<br><br>⚖️ REMIS! ATAKUJĄCY COFA SIĘ O JEDNO POLE.";
     }
 }
+function opiszZetonyRycerza(zetony) {
+
+    const atak = zetony.find(z => z.typ === "atak");
+    const obrona = zetony.find(z => z.typ === "obrona");
+    const atakX2 = zetony.find(z => z.typ === "atak_x2");
+    const obronaX2 = zetony.find(z => z.typ === "obrona_x2");
+
+    return `
+        Żeton ataku: ${atak ? atak.wartosc : 0}<br>
+        Żeton obrony: ${obrona ? obrona.wartosc : 0}<br>
+        ${atakX2 ? "Podwójny atak: +4<br>" : ""}
+        ${obronaX2 ? "Podwójna obrona: +4<br>" : ""}
+    `;
+}
 
 // ZATWIERDZANIE WYBORU ŻETONÓW
 
