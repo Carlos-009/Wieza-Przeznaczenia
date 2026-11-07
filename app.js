@@ -757,7 +757,21 @@ document.getElementById("wybierz-walke-rycerzy")
 // ROZPOCZĘCIE WYBORU ŻETONÓW
 
 function rozpocznijWyborZetonow() {
-// OBLICZANIE WYNIKU RYCERZA
+    wyborPierwszegoRycerza = [];
+    wyborDrugiegoRycerza = [];
+    aktualnyWyborRycerza = 1;
+
+    pokazZetonyPojedynku();
+
+    document.getElementById("zatwierdz-wybor-pojedynku").style.display = "block";
+    document.getElementById("przejdz-do-drugiego-gracza").style.display = "none";
+    document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display = "block";
+
+    document.getElementById("wynik-zetonow-pojedynku").textContent =
+        "Pierwszy rycerz wybiera swoje żetony.";
+
+    pokazEkran("ekran-zetonow-pojedynku");
+}
 
 // OBLICZANIE WYNIKU RYCERZA
 
