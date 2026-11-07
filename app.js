@@ -941,6 +941,23 @@ document.getElementById("kolej-przeciwnika")
 
         losujSileAtaku(2);
     });
+
+// POWRÓT Z POJEDYNKU DO GRY
+
+document.getElementById("powrot-pojedynku")
+    .addEventListener("click", () => {
+
+        zatrzymajVideo();
+        video.onended = null;
+        video.onerror = null;
+
+        document.getElementById("kolej-przeciwnika").style.display = "none";
+        document.getElementById("oblicz-pojedynek").style.display = "none";
+
+        pokazEkran("ekran-gry");
+        wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
+    });
+
 // POWRÓT Z WYBORU WALKI
 
 document.getElementById("powrot-z-walki")
