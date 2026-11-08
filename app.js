@@ -943,8 +943,14 @@ document.getElementById("zatwierdz-wybor-pojedynku")
 document.getElementById("rozpocznij-wybor-drugiego")
     .addEventListener("click", () => {
 
-        document.getElementById("wynik-zetonow-pojedynku").textContent =
-            "Drugi rycerz wybiera swoje żetony.";
+        document.getElementById("wynik-zetonow-pojedynku").innerHTML =
+            "<h2>WYBÓR ŻETONÓW — RYCERZ BRONIĄCY SIĘ</h2>" +
+            "<p>Siła atakującego: <strong>" +
+            silaPierwszegoRycerza + "</strong></p>" +
+            "<p>Twoja siła: <strong>" +
+            silaDrugiegoRycerza + "</strong></p>" +
+            "<hr>" +
+            "<p>Teraz wybierz swoje żetony.</p>";
 
         document.getElementById("zatwierdz-wybor-pojedynku").style.display =
             "block";
