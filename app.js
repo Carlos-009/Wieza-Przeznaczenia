@@ -529,6 +529,8 @@ przycisk.addEventListener("click", async () => {
         const ndef = new NDEFReader();
 
         ndef.addEventListener("reading", ({ message }) => {
+         const dzwiekNFC = new Audio("dzwieki/nfc.wav");
+            dzwiekNFC.play().catch(() => {});
             for (const record of message.records) {
                 if (record.recordType === "text") {
                     const decoder = new TextDecoder(record.encoding);
