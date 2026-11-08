@@ -785,9 +785,12 @@ function rozpocznijWyborZetonow() {
 
     document.getElementById("zatwierdz-wybor-pojedynku").style.display = "block";
     document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display = "block";
-    document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display = "block";
-    document.getElementById("wynik-zetonow-pojedynku").textContent =
-        "Pierwszy rycerz wybiera swoje żetony.";
+
+    document.getElementById("wynik-zetonow-pojedynku").innerHTML =
+        "<h2>WYBÓR ŻETONÓW — RYCERZ ATAKUJĄCY</h2>" +
+        "<p>Wylosowana siła ataku: <strong>" +
+        silaPierwszegoRycerza + "</strong></p>" +
+        "<p>Wybierz swoje żetony.</p>";
 
     pokazEkran("ekran-zetonow-pojedynku");
 }
