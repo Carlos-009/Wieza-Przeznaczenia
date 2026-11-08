@@ -1103,3 +1103,12 @@ window.addEventListener("load", () => {
         odtworzIntro(true);
     }
 });
+
+// DŹWIĘK KLIKNIĘCIA PRZYCISKÓW
+
+document.addEventListener("click", (event) => {
+    if (event.target.closest("button")) {
+        const dzwiekKlik = new Audio("dzwieki/klik.wav");
+        dzwiekKlik.play().catch(() => {});
+    }
+});
