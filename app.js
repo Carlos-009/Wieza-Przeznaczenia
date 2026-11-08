@@ -822,8 +822,7 @@ function obliczSileRycerza(sila, swojeZetony) {
 // ROZSTRZYGNIĘCIE POJEDYNKU RYCERZY
 
 function rozstrzygnijPojedynek() {
-function rozstrzygnijPojedynek() {
-
+document.getElementById("powrot-pojedynku").style.display = "block";
     const wynikPierwszego = obliczSileRycerza(
         silaPierwszegoRycerza,
         wyborPierwszegoRycerza
