@@ -1049,6 +1049,7 @@ document.getElementById("wybierz-final-smok")
     });
 // WYBÓR KOLORU RYCERZA DO FINAŁU
 console.log("KOD FINAŁU ZAŁADOWANY");
+console.log("LICZBA PRZYCISKÓW RYCERZY:", document.querySelectorAll("[data-rycerz]").length);
 let wybranyKolorRycerza = null;
 
 document.querySelectorAll("[data-rycerz]").forEach(button => {
