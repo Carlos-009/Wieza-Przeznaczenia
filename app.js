@@ -697,7 +697,7 @@ function losujSileAtaku(numerRycerza) {
     video.classList.add("odtwarzanie");
     document.getElementById("powrot-pojedynku").style.display = "none";
     video.onended = () => {
-
+document.getElementById("powrot-pojedynku").style.display = "block";
         video.classList.remove("odtwarzanie");
         video.pause();
         video.removeAttribute("src");
