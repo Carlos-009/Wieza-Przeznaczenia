@@ -704,13 +704,20 @@ function losujSileAtaku(numerRycerza) {
         video.load();
 
         if (numerRycerza === 1) {
-            silaPierwszegoRycerza = sila;
+    silaPierwszegoRycerza = sila;
 
-            document.getElementById("wynik-pojedynku").textContent =
-                "SIŁA PIERWSZEGO RYCERZA: " + sila;
+    document.getElementById("wynik-pojedynku").innerHTML =
+        "<h2>SIŁA RYCERZA ATAKUJĄCEGO: " + sila + "</h2>" +
+        "<hr>" +
+        "<h2>TERAZ PORA NA RYCERZA BRONIĄCEGO SIĘ!</h2>" +
+        "<p>Przekaż telefon drugiemu graczowi.</p>" +
+        "<p>Niech wylosuje swoją siłę ataku.</p>";
 
-            document.getElementById("kolej-przeciwnika").style.display =
-                "block";
+    document.getElementById("kolej-przeciwnika").textContent =
+        "⚔️ RYCERZ BRONIĄCY SIĘ — LOSUJ SIŁĘ";
+
+    document.getElementById("kolej-przeciwnika").style.display =
+        "block";
 
         } else {
             silaDrugiegoRycerza = sila;
