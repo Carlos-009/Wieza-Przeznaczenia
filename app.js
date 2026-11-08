@@ -822,6 +822,7 @@ function obliczSileRycerza(sila, swojeZetony) {
 // ROZSTRZYGNIĘCIE POJEDYNKU RYCERZY
 
 function rozstrzygnijPojedynek() {
+function rozstrzygnijPojedynek() {
 
     const wynikPierwszego = obliczSileRycerza(
         silaPierwszegoRycerza,
@@ -846,38 +847,51 @@ function rozstrzygnijPojedynek() {
     if (wynikPierwszego > wynikDrugiego) {
 
         rezultat =
-            "<br><br>🏆 WYGRYWA PIERWSZY RYCERZ!";
+            "<h2>🏆 WYGRYWA RYCERZ ATAKUJĄCY!</h2>" +
+            "<p style='color:red; font-weight:bold;'>" +
+            "Rycerz broniący się cofa się o jedno pole.</p>" +
+            "<p style='color:green; font-weight:bold;'>" +
+            "Rycerz atakujący zostaje na miejscu.</p>";
 
     } else if (wynikDrugiego > wynikPierwszego) {
 
         rezultat =
-            "<br><br>🏆 WYGRYWA DRUGI RYCERZ!";
+            "<h2>🏆 WYGRYWA RYCERZ BRONIĄCY SIĘ!</h2>" +
+            "<p style='color:red; font-weight:bold;'>" +
+            "Rycerz atakujący cofa się o jedno pole.</p>" +
+            "<p style='color:green; font-weight:bold;'>" +
+            "Rycerz broniący się zostaje na miejscu.</p>";
 
     } else {
 
         rezultat =
-            "<br><br>⚖️ REMIS! ATAKUJĄCY COFA SIĘ O JEDNO POLE.";
+            "<h2>⚖️ REMIS!</h2>" +
+            "<p style='color:red; font-weight:bold;'>" +
+            "Rycerz atakujący cofa się o jedno pole.</p>" +
+            "<p style='color:green; font-weight:bold;'>" +
+            "Rycerz broniący się zostaje na miejscu.</p>";
     }
 
     pokazEkran("ekran-pojedynku");
 
     document.getElementById("wynik-pojedynku").innerHTML =
 
-        "<h2>PIERWSZY RYCERZ</h2>" +
+        "<h2>RYCERZ ATAKUJĄCY</h2>" +
         "Wylosowana siła ataku: " + silaPierwszegoRycerza + "<br>" +
         opisPierwszego +
         "<strong>WYNIK: " + wynikPierwszego + "</strong>" +
 
         "<hr>" +
 
-        "<h2>DRUGI RYCERZ</h2>" +
+        "<h2>RYCERZ BRONIĄCY SIĘ</h2>" +
         "Wylosowana siła ataku: " + silaDrugiegoRycerza + "<br>" +
         opisDrugiego +
         "<strong>WYNIK: " + wynikDrugiego + "</strong>" +
 
+        "<hr>" +
         rezultat;
 }
-
+    
 function opiszZetonyRycerza(zetony) {
 
     const atak = zetony.find(z => z.typ === "atak");
