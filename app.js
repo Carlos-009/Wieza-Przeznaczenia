@@ -1048,7 +1048,7 @@ document.getElementById("wybierz-final-smok")
             "Wybierz kolor swojego rycerza.";
     });
 // WYBÓR KOLORU RYCERZA DO FINAŁU
-
+console.log("KOD FINAŁU ZAŁADOWANY");
 let wybranyKolorRycerza = null;
 
 document.querySelectorAll("[data-rycerz]").forEach(button => {
