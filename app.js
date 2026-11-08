@@ -737,7 +737,7 @@ document.getElementById("powrot-pojedynku").style.display = "block";
 
     document.getElementById("oblicz-pojedynek").style.display =
         "none";
-
+document.getElementById("powrot-pojedynku").style.display = "none";
     setTimeout(() => {
         rozpocznijWyborZetonow();
     }, 1500);
