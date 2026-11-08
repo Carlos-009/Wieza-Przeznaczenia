@@ -743,7 +743,6 @@ function losujSileAtaku(numerRycerza) {
 // WYBÓR RODZAJU WALKI
 
 document.getElementById("wybierz-walke-rycerzy")
-document.getElementById("wybierz-walke-rycerzy")
     .addEventListener("click", () => {
 
         pokazEkran("ekran-pojedynku");
