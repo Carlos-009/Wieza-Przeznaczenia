@@ -965,7 +965,11 @@ document.getElementById("kolej-przeciwnika")
 
         document.getElementById("kolej-przeciwnika").style.display = "none";
 
-        losujSileAtaku(1);
+        if (silaPierwszegoRycerza === 0) {
+            losujSileAtaku(1);
+        } else {
+            losujSileAtaku(2);
+        }
     });
 
 // POWRÓT Z WYBORU ŻETONÓW DO GRY
