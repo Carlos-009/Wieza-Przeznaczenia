@@ -1054,7 +1054,7 @@ let wybranyKolorRycerza = null;
 
 document.querySelectorAll("[data-rycerz]").forEach(button => {
     button.addEventListener("click", () => {
-
+console.log("KLIKNIĘTO RYCERZA:", button.dataset.rycerz);
         wybranyKolorRycerza = button.dataset.rycerz;
 
         document.getElementById("wynik-finalu").textContent =
