@@ -787,10 +787,13 @@ function rozpocznijWyborZetonow() {
     document.getElementById("rezygnuje-z-zetonow-pojedynku").style.display = "block";
 
     document.getElementById("wynik-zetonow-pojedynku").innerHTML =
-        "<h2>WYBÓR ŻETONÓW — RYCERZ ATAKUJĄCY</h2>" +
-        "<p>Wylosowana siła ataku: <strong>" +
-        silaPierwszegoRycerza + "</strong></p>" +
-        "<p>Wybierz swoje żetony.</p>";
+    "<h2>WYBÓR ŻETONÓW — RYCERZ ATAKUJĄCY</h2>" +
+    "<p>Siła atakującego: <strong>" +
+    silaPierwszegoRycerza + "</strong></p>" +
+    "<p>Siła broniącego się: <strong>" +
+    silaDrugiegoRycerza + "</strong></p>" +
+    "<hr>" +
+    "<p>Wybierz swoje żetony.</p>";
 
     pokazEkran("ekran-zetonow-pojedynku");
 }
