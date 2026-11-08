@@ -958,7 +958,7 @@ document.getElementById("kolej-przeciwnika")
 
         document.getElementById("kolej-przeciwnika").style.display = "none";
 
-        losujSileAtaku(2);
+        losujSileAtaku(1);
     });
 
 // POWRÓT Z WYBORU ŻETONÓW DO GRY
