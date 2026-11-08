@@ -720,20 +720,27 @@ function losujSileAtaku(numerRycerza) {
         "block";
 
         } else {
-            silaDrugiegoRycerza = sila;
+    silaDrugiegoRycerza = sila;
 
-            document.getElementById("wynik-pojedynku").innerHTML =
-    "SIŁA PIERWSZEGO RYCERZA: " + silaPierwszegoRycerza +
-    "<br>SIŁA DRUGIEGO RYCERZA: " + silaDrugiegoRycerza;
-                document.getElementById("kolej-przeciwnika").style.display =
-                "none";
+    document.getElementById("wynik-pojedynku").innerHTML =
+        "<h2>WYNIKI LOSOWANIA SIŁY</h2>" +
+        "<p>RYCERZ ATAKUJĄCY: " +
+        silaPierwszegoRycerza + "</p>" +
+        "<p>RYCERZ BRONIĄCY SIĘ: " +
+        silaDrugiegoRycerza + "</p>" +
+        "<hr>" +
+        "<p>Obaj rycerze wylosowali już swoją siłę!</p>" +
+        "<p>Teraz przechodzimy do wyboru żetonów.</p>";
 
-            document.getElementById("oblicz-pojedynek").style.display =
-                "none";
+    document.getElementById("kolej-przeciwnika").style.display =
+        "none";
 
-            setTimeout(() => {
-                rozpocznijWyborZetonow();
-            }, 1500);
+    document.getElementById("oblicz-pojedynek").style.display =
+        "none";
+
+    setTimeout(() => {
+        rozpocznijWyborZetonow();
+    }, 1500);
         }
     };
 
