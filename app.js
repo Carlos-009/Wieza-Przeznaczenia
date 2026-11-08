@@ -743,6 +743,7 @@ function losujSileAtaku(numerRycerza) {
 // WYBÓR RODZAJU WALKI
 
 document.getElementById("wybierz-walke-rycerzy")
+document.getElementById("wybierz-walke-rycerzy")
     .addEventListener("click", () => {
 
         pokazEkran("ekran-pojedynku");
@@ -750,10 +751,16 @@ document.getElementById("wybierz-walke-rycerzy")
         silaPierwszegoRycerza = 0;
         silaDrugiegoRycerza = 0;
 
-        document.getElementById("kolej-przeciwnika").style.display = "none";
+        document.getElementById("kolej-przeciwnika").style.display = "block";
+        document.getElementById("kolej-przeciwnika").textContent =
+            "⚔️ LOSUJ SIŁĘ ATAKU";
 
-        losujSileAtaku(1);
+        document.getElementById("wynik-pojedynku").innerHTML =
+            "<h2>JESTEŚ RYCERZEM ATAKUJĄCYM!</h2>" +
+            "<p>To Ty wkroczyłeś na pole zajęte przez innego rycerza.</p>" +
+            "<p>Przygotuj się do walki i wylosuj swoją siłę ataku.</p>";
     });
+
 // ROZPOCZĘCIE WYBORU ŻETONÓW
 
 function rozpocznijWyborZetonow() {
