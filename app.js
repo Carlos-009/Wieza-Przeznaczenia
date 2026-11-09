@@ -1297,7 +1297,7 @@ document.getElementById("przejdz-do-zetonow-finalu")
             "<p>🐉 Siła smoka z ogniem: " + (silaSmoka + ogienSmoka) + "</p>" +
             "<p>⚔️ Siła rycerza: " + silaRycerzaFinal + "</p>" +
             "<p>Wybierz żetony, których chcesz użyć.</p>";
-
+        pokazZetonyFinalu();
         pokazEkran("ekran-zetonow-finalu");
     });
 
