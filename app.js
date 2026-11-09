@@ -1060,6 +1060,7 @@ console.log("KLIKNIĘTO RYCERZA:", button.dataset.rycerz);
         document.getElementById("wynik-finalu").textContent =
             "Wybrany rycerz: " + wybranyKolorRycerza.toUpperCase() +
             ". Przygotuj się do walki ze smokiem!";
+   document.getElementById("rozpocznij-walke-smokiem").style.display = "block";
     });
 });
 
