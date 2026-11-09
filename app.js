@@ -1219,6 +1219,7 @@ video.onended = () => {
         "<p>" + opisOgnia + "</p>" +
         "<hr>" +
         "<p>Teraz czas na wybór żetonów rycerza!</p>";
+document.getElementById("przejdz-do-zetonow-finalu").style.display = "block";
 };
 
 video.play().catch(error => {
