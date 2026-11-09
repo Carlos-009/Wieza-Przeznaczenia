@@ -1077,6 +1077,28 @@ console.log("KLIKNIĘTO RYCERZA:", button.dataset.rycerz);
     });
 });
 
+// ROZPOCZĘCIE WALKI ZE SMOKIEM
+
+document.getElementById("rozpocznij-walke-smokiem")
+    .addEventListener("click", () => {
+
+        punktyRycerzaFinal = 0;
+        punktySmokaFinal = 0;
+        numerRundyFinal = 1;
+
+        document.getElementById("punkty-rycerza").textContent = "0";
+        document.getElementById("punkty-smoka").textContent = "0";
+        document.getElementById("numer-rundy").textContent = "1";
+
+        document.getElementById("wybor-koloru-rycerza").style.display = "none";
+        document.getElementById("rozpocznij-walke-smokiem").style.display = "none";
+
+        document.getElementById("wynik-finalu").innerHTML =
+            "<h2>🐉 RUNDA 1</h2>" +
+            "<p>Smok przygotowuje się do walki!</p>" +
+            "<p>Za chwilę wylosujemy jego siłę.</p>";
+    });
+
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
 
 document.getElementById("powrot-z-zetonow-finalu")
