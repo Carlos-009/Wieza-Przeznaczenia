@@ -1114,6 +1114,32 @@ document.getElementById("losuj-sile-smoka")
             "<p>Trwa przygotowanie ataku smoka...</p>";
 
         console.log("Wylosowana siła smoka:", silaSmoka);
+   const adresFilmuSmoka = filmySilyAtaku[silaSmoka - 1];
+
+video.pause();
+video.onended = null;
+video.onerror = null;
+
+video.src = adresFilmuSmoka;
+video.loop = false;
+video.controls = false;
+video.muted = false;
+video.classList.add("odtwarzanie");
+
+video.onended = () => {
+    video.classList.remove("odtwarzanie");
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+
+    document.getElementById("wynik-finalu").innerHTML =
+        "<h2>🐉 SIŁA SMOKA: " + silaSmoka + "</h2>" +
+        "<p>Teraz kolej na rycerza!</p>";
+};
+
+video.play().catch(error => {
+    console.log("Błąd filmu smoka:", error);
+});
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
