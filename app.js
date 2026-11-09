@@ -644,7 +644,11 @@ przycisk.addEventListener("click", () => {
     const ekran = przycisk.closest(".ekran");
 
     const wybrane = ekran.querySelectorAll(".wybrany");
-
+    
+    const zwykly = Array.from(wybrane).find(el =>
+    el.dataset.typ === "atak" ||
+    el.dataset.typ === "obrona"
+);
         const specjalny = Array.from(wybrane).find(el =>
             el.dataset.typ === "atak_x2" ||
             el.dataset.typ === "obrona_x2"
