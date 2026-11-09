@@ -1143,6 +1143,22 @@ video.play().catch(error => {
 });
     });
 
+// LOSOWANIE SIŁY RYCERZA W FINALE
+
+document.getElementById("losuj-sile-rycerza-final")
+    .addEventListener("click", () => {
+
+        silaRycerzaFinal = Math.floor(Math.random() * 5) + 1;
+
+        document.getElementById("losuj-sile-rycerza-final").style.display = "none";
+
+        document.getElementById("wynik-finalu").innerHTML =
+            "<h2>⚔️ RYCERZ LOSUJE SIŁĘ!</h2>" +
+            "<p>Trwa losowanie siły rycerza...</p>";
+
+        console.log("Wylosowana siła rycerza:", silaRycerzaFinal);
+    });
+
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
 
 document.getElementById("powrot-z-zetonow-finalu")
