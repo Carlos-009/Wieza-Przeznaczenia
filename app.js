@@ -639,10 +639,11 @@ function dodajZeton(kontener, plik, typ, wartosc) {
         przycisk.appendChild(obraz);
     }
 
-    przycisk.addEventListener("click", () => {
-        const wybrane = document.querySelectorAll(
-            "#ekran-zetonow-pojedynku .wybrany"
-        );
+przycisk.addEventListener("click", () => {
+
+    const ekran = przycisk.closest(".ekran");
+
+    const wybrane = ekran.querySelectorAll(".wybrany");
 
         const zwykly = Array.from(wybrane).find(el =>
             el.dataset.typ === "atak" ||
