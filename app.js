@@ -1097,6 +1097,7 @@ document.getElementById("rozpocznij-walke-smokiem")
             "<h2>🐉 RUNDA 1</h2>" +
             "<p>Smok przygotowuje się do walki!</p>" +
             "<p>Za chwilę wylosujemy jego siłę.</p>";
+  document.getElementById("losuj-sile-smoka").style.display = "block";
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
