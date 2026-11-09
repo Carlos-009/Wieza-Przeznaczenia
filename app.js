@@ -1167,6 +1167,22 @@ document.getElementById("losuj-sile-rycerza-final")
 
         console.log("Wylosowana siła rycerza:", silaRycerzaFinal);
     
+        // LOSOWANIE OGNIA SMOKA W FINALE
+
+document.getElementById("losuj-ogien-smoka")
+    .addEventListener("click", () => {
+
+        ogienSmoka = Math.floor(Math.random() * 3);
+
+        document.getElementById("losuj-ogien-smoka").style.display = "none";
+
+        document.getElementById("wynik-finalu").innerHTML =
+            "<h2>🔥 SMOK ZIEJE OGNIEM!</h2>" +
+            "<p>Trwa losowanie siły ognia...</p>";
+
+        console.log("Wylosowana siła ognia:", ogienSmoka);
+    });
+        
         // FILM LOSOWANIA SIŁY RYCERZA W FINALE
 
 const adresFilmuRycerza = filmySilyAtaku[silaRycerzaFinal - 1];
