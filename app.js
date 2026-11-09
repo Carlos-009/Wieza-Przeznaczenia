@@ -1181,6 +1181,49 @@ document.getElementById("losuj-ogien-smoka")
             "<p>Trwa losowanie siły ognia...</p>";
 
         console.log("Wylosowana siła ognia:", ogienSmoka);
+
+        // ODTWARZANIE FILMU OGNIA SMOKA
+
+const adresFilmuOgnia = filmyOgniaSmoka[ogienSmoka];
+
+video.pause();
+video.onended = null;
+video.onerror = null;
+
+video.src = adresFilmuOgnia;
+video.loop = false;
+video.controls = false;
+video.muted = false;
+video.classList.add("odtwarzanie");
+
+video.onended = () => {
+    video.classList.remove("odtwarzanie");
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+
+    let opisOgnia = "";
+
+    if (ogienSmoka === 0) {
+        opisOgnia = "🛡️ Rycerz uniknął ognia!";
+    } else if (ogienSmoka === 1) {
+        opisOgnia = "🔥 Rycerz został lekko osmalony!";
+    } else {
+        opisOgnia = "🔥🔥 Rycerz otrzymał potężny podmuch ognia!";
+    }
+
+    document.getElementById("wynik-finalu").innerHTML =
+        "<h2>🐉 SIŁA SMOKA: " + silaSmoka + "</h2>" +
+        "<h2>⚔️ SIŁA RYCERZA: " + silaRycerzaFinal + "</h2>" +
+        "<h2>🔥 SIŁA OGNIA: " + ogienSmoka + "</h2>" +
+        "<p>" + opisOgnia + "</p>" +
+        "<hr>" +
+        "<p>Teraz czas na wybór żetonów rycerza!</p>";
+};
+
+video.play().catch(error => {
+    console.log("Błąd filmu ognia smoka:", error);
+});
     });
         
         // FILM LOSOWANIA SIŁY RYCERZA W FINALE
