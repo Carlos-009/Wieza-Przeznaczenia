@@ -1038,6 +1038,7 @@ document.getElementById("powrot-z-walki")
         pokazEkran("ekran-gry");
         wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
     });
+
 // ROZPOCZĘCIE FINAŁU ZE SMOKIEM
 
 document.getElementById("wybierz-final-smok")
@@ -1047,10 +1048,22 @@ document.getElementById("wybierz-final-smok")
         document.getElementById("wynik-finalu").textContent =
             "Wybierz kolor swojego rycerza.";
     });
+
 // WYBÓR KOLORU RYCERZA DO FINAŁU
+
 console.log("KOD FINAŁU ZAŁADOWANY");
 console.log("LICZBA PRZYCISKÓW RYCERZY:", document.querySelectorAll("[data-rycerz]").length);
 let wybranyKolorRycerza = null;
+
+// ZMIENNE WALKI ZE SMOKIEM
+
+let silaSmoka = 0;
+let silaRycerzaFinal = 0;
+let ogienSmoka = 0;
+
+let punktyRycerzaFinal = 0;
+let punktySmokaFinal = 0;
+let numerRundyFinal = 1;
 
 document.querySelectorAll("[data-rycerz]").forEach(button => {
     button.addEventListener("click", () => {
