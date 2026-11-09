@@ -1135,6 +1135,7 @@ video.onended = () => {
     document.getElementById("wynik-finalu").innerHTML =
         "<h2>🐉 SIŁA SMOKA: " + silaSmoka + "</h2>" +
         "<p>Teraz kolej na rycerza!</p>";
+document.getElementById("losuj-sile-rycerza-final").style.display = "block";
 };
 
 video.play().catch(error => {
