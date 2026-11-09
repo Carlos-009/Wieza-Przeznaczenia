@@ -1260,6 +1260,22 @@ video.play().catch(error => {
 });
     });
 
+// PRZEJŚCIE DO WYBORU ŻETONÓW W FINALE
+
+document.getElementById("przejdz-do-zetonow-finalu")
+    .addEventListener("click", () => {
+
+        document.getElementById("przejdz-do-zetonow-finalu").style.display = "none";
+
+        document.getElementById("wynik-rundy").innerHTML =
+            "<h2>⚔️ RUNDA " + numerRundyFinal + "</h2>" +
+            "<p>🐉 Siła smoka z ogniem: " + (silaSmoka + ogienSmoka) + "</p>" +
+            "<p>⚔️ Siła rycerza: " + silaRycerzaFinal + "</p>" +
+            "<p>Wybierz żetony, których chcesz użyć.</p>";
+
+        pokazEkran("ekran-zetonow-finalu");
+    });
+
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
 
 document.getElementById("powrot-z-zetonow-finalu")
