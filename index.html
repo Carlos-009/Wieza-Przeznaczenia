@@ -382,6 +382,26 @@
     height: auto;
     object-fit: contain;
     }
+        /* ZAZNACZANIE ŻETONÓW W FINALE */
+
+#ekran-zetonow-finalu .zeton-wyboru {
+    position: relative;
+}
+
+#ekran-zetonow-finalu .zeton-wyboru.wybrany {
+    border: 3px solid red;
+    background: #fff3b0;
+}
+
+#ekran-zetonow-finalu .zeton-wyboru.wybrany::after {
+    content: "✓";
+    position: absolute;
+    top: -9px;
+    right: -5px;
+    color: red;
+    font-size: 19px;
+    font-weight: bold;
+    }
     </style>
 </head>
 
