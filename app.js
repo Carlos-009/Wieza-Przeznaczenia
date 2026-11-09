@@ -599,6 +599,31 @@ function pokazZetonyPojedynku() {
     dodajZeton(specjalne, "atak_x2.jpg", "atak_x2", 4);
     dodajZeton(specjalne, "obrona_x2.jpg", "obrona_x2", 4);
 }
+
+// WYŚWIETLANIE ŻETONÓW W WALCE ZE SMOKIEM
+
+function pokazZetonyFinalu() {
+
+    const atak = document.getElementById("zetony-ataku");
+    const obrona = document.getElementById("zetony-obrony");
+    const specjalne = document.getElementById("zetony-specjalne");
+
+    atak.classList.add("zetony-wyboru");
+    obrona.classList.add("zetony-wyboru");
+    specjalne.classList.add("zetony-wyboru");
+
+    atak.innerHTML = "";
+    obrona.innerHTML = "";
+    specjalne.innerHTML = "";
+
+    for (let i = 1; i <= 5; i++) {
+        dodajZeton(atak, "miecz" + i + ".jpg", "atak", i);
+        dodajZeton(obrona, "tarcza" + i + ".jpg", "obrona", i);
+    }
+
+    dodajZeton(specjalne, "atak_x2.jpg", "atak_x2", 4);
+    dodajZeton(specjalne, "obrona_x2.jpg", "obrona_x2", 4);
+}
 function dodajZeton(kontener, plik, typ, wartosc) {
     const przycisk = document.createElement("button");
     przycisk.className = "zeton-wyboru";
