@@ -1157,6 +1157,37 @@ document.getElementById("losuj-sile-rycerza-final")
             "<p>Trwa losowanie siły rycerza...</p>";
 
         console.log("Wylosowana siła rycerza:", silaRycerzaFinal);
+    
+        // FILM LOSOWANIA SIŁY RYCERZA W FINALE
+
+const adresFilmuRycerza = filmySilyAtaku[silaRycerzaFinal - 1];
+
+video.pause();
+video.onended = null;
+video.onerror = null;
+
+video.src = adresFilmuRycerza;
+video.loop = false;
+video.controls = false;
+video.muted = false;
+video.classList.add("odtwarzanie");
+
+video.onended = () => {
+    video.classList.remove("odtwarzanie");
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+
+    document.getElementById("wynik-finalu").innerHTML =
+        "<h2>⚔️ SIŁA RYCERZA: " + silaRycerzaFinal + "</h2>" +
+        "<p>🐉 Siła smoka: " + silaSmoka + "</p>" +
+        "<hr>" +
+        "<p>Teraz smok przygotowuje ognisty atak!</p>";
+};
+
+video.play().catch(error => {
+    console.log("Błąd filmu rycerza w finale:", error);
+});
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
