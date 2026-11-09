@@ -1100,6 +1100,22 @@ document.getElementById("rozpocznij-walke-smokiem")
   document.getElementById("losuj-sile-smoka").style.display = "block";
     });
 
+// LOSOWANIE SIŁY SMOKA
+
+document.getElementById("losuj-sile-smoka")
+    .addEventListener("click", () => {
+
+        silaSmoka = Math.floor(Math.random() * 5) + 1;
+
+        document.getElementById("losuj-sile-smoka").style.display = "none";
+
+        document.getElementById("wynik-finalu").innerHTML =
+            "<h2>🐉 SMOK LOSUJE SIŁĘ!</h2>" +
+            "<p>Trwa przygotowanie ataku smoka...</p>";
+
+        console.log("Wylosowana siła smoka:", silaSmoka);
+    });
+
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
 
 document.getElementById("powrot-z-zetonow-finalu")
