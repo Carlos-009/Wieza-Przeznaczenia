@@ -678,6 +678,15 @@ const filmySilyAtaku = [
     "https://archive.org/download/atak_rycerzy/sila_ataku04.mp4",
     "https://archive.org/download/atak_rycerzy/sila_ataku05.mp4"
 ];
+
+// FILMY OGNIA SMOKA W FINALE
+
+const filmyOgniaSmoka = [
+    "https://archive.org/download/walkaogien/Ogien0.mp4",
+    "https://archive.org/download/walkaogien/ogien1.mp4",
+    "https://archive.org/download/walkaogien/ogien2.mp4"
+];
+
 // WYNIKI SIŁY ATAKU RYCERZY
 
 let silaPierwszegoRycerza = 0;
