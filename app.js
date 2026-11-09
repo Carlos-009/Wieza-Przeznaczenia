@@ -1192,6 +1192,7 @@ video.onended = () => {
         "<p>🐉 Siła smoka: " + silaSmoka + "</p>" +
         "<hr>" +
         "<p>Teraz smok przygotowuje ognisty atak!</p>";
+document.getElementById("losuj-ogien-smoka").style.display = "block";
 };
 
 video.play().catch(error => {
