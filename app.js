@@ -1102,6 +1102,31 @@ if (punktyRycerzaFinal === 2) {
 }
     });
 
+// ROZPOCZĘCIE NASTĘPNEJ RUNDY FINAŁU
+
+document.getElementById("nastepna-runda-finalu")
+    .addEventListener("click", () => {
+
+        numerRundyFinal++;
+
+        silaSmoka = 0;
+        silaRycerzaFinal = 0;
+        ogienSmoka = 0;
+
+        document.getElementById("numer-rundy").textContent =
+            numerRundyFinal;
+
+        document.getElementById("nastepna-runda-finalu").style.display = "none";
+
+        document.getElementById("wynik-finalu").innerHTML =
+            "<h2>🐉 RUNDA " + numerRundyFinal + "</h2>" +
+            "<p>Smok ponownie przygotowuje się do walki!</p>" +
+            "<p>Rozpocznij losowanie jego siły.</p>";
+
+        document.getElementById("losuj-sile-smoka").style.display = "block";
+
+    });
+
 // WYBÓR KOLORU RYCERZA DO FINAŁU
 
 console.log("KOD FINAŁU ZAŁADOWANY");
