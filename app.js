@@ -1127,6 +1127,46 @@ document.getElementById("nastepna-runda-finalu")
 
     });
 
+// POWRÓT DO GRY PO PRZEGRANEJ ZE SMOKIEM
+
+document.getElementById("zakoncz-przegrana-finalu")
+    .addEventListener("click", () => {
+
+        // Wyzerowanie wyników finału
+        punktyRycerzaFinal = 0;
+        punktySmokaFinal = 0;
+        numerRundyFinal = 1;
+
+        silaSmoka = 0;
+        silaRycerzaFinal = 0;
+        ogienSmoka = 0;
+
+        wybranyKolorRycerza = null;
+
+        // Aktualizacja tablicy punktów
+        document.getElementById("punkty-rycerza").textContent = "0";
+        document.getElementById("punkty-smoka").textContent = "0";
+        document.getElementById("numer-rundy").textContent = "1";
+
+        // Przygotowanie ekranu do kolejnej walki
+        document.getElementById("wybor-koloru-rycerza").style.display = "block";
+
+        document.getElementById("rozpocznij-walke-smokiem").style.display = "none";
+        document.getElementById("losuj-sile-smoka").style.display = "none";
+        document.getElementById("losuj-sile-rycerza-final").style.display = "none";
+        document.getElementById("losuj-ogien-smoka").style.display = "none";
+        document.getElementById("przejdz-do-zetonow-finalu").style.display = "none";
+        document.getElementById("nastepna-runda-finalu").style.display = "none";
+        document.getElementById("zakoncz-przegrana-finalu").style.display = "none";
+
+        document.getElementById("wynik-finalu").textContent =
+            "Przygotuj się do walki!";
+
+        // Powrót do planszy
+        pokazEkran("ekran-gry");
+
+    });
+
 // WYBÓR KOLORU RYCERZA DO FINAŁU
 
 console.log("KOD FINAŁU ZAŁADOWANY");
