@@ -1301,6 +1301,24 @@ document.getElementById("przejdz-do-zetonow-finalu")
         pokazEkran("ekran-zetonow-finalu");
     });
 
+// ZATWIERDZANIE ŻETONÓW W WALCE ZE SMOKIEM
+
+document.getElementById("zatwierdz-zetony")
+    .addEventListener("click", () => {
+
+        const wybraneZetony = Array.from(
+            document.querySelectorAll(
+                "#ekran-zetonow-finalu .zeton-wyboru.wybrany"
+            )
+        ).map(zeton => ({
+            typ: zeton.dataset.typ,
+            wartosc: Number(zeton.dataset.wartosc)
+        }));
+
+        console.log("Żetony wybrane do walki ze smokiem:", wybraneZetony);
+
+    });
+
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
 
 document.getElementById("powrot-z-zetonow-finalu")
