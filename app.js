@@ -1,6 +1,3 @@
-
-
-
 const wynik = document.getElementById("wynik");
 const video = document.getElementById("video");
 const przycisk = document.getElementById("skanuj");
@@ -1348,6 +1345,22 @@ document.getElementById("punkty-rycerza").textContent =
 
 document.getElementById("punkty-smoka").textContent =
     punktySmokaFinal;
+   
+        // WYŚWIETLENIE WYNIKU RUNDY
+
+const zwyciezcaRundy =
+    wynikRycerza > wynikSmoka ? "⚔️ RYCERZ" : "🐉 SMOK";
+
+document.getElementById("wynik-finalu").innerHTML =
+    "<h2>⚔️ WYNIK RUNDY " + numerRundyFinal + "</h2>" +
+    "<p>🐉 Siła smoka z ogniem: " + wynikSmoka + "</p>" +
+    "<p>⚔️ Siła rycerza z żetonami: " + wynikRycerza + "</p>" +
+    "<hr>" +
+    "<h2>🏆 RUNDĘ WYGRYWA: " + zwyciezcaRundy + "</h2>" +
+    "<p>⚔️ Rycerz: " + punktyRycerzaFinal +
+    " | 🐉 Smok: " + punktySmokaFinal + "</p>";
+
+pokazEkran("ekran-finalu");
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
