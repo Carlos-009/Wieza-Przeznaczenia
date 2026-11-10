@@ -1167,7 +1167,15 @@ document.querySelectorAll("[data-rycerz]").forEach(button => {
     button.addEventListener("click", () => {
 console.log("KLIKNIĘTO RYCERZA:", button.dataset.rycerz);
         wybranyKolorRycerza = button.dataset.rycerz;
+// USUNIĘCIE ZAZNACZENIA Z POZOSTAŁYCH RYCERZY
 
+document.querySelectorAll("[data-rycerz]").forEach(przycisk => {
+    przycisk.classList.remove("wybrany-rycerz");
+});
+
+// ZAZNACZENIE WYBRANEGO RYCERZA
+
+button.classList.add("wybrany-rycerz");
         document.getElementById("wynik-finalu").textContent =
             "Wybrany rycerz: " + wybranyKolorRycerza.toUpperCase() +
             ". Przygotuj się do walki ze smokiem!";
