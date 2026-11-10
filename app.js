@@ -1329,6 +1329,16 @@ const wynikSmoka = silaSmoka + ogienSmoka;
 
 console.log("Łączna siła rycerza:", wynikRycerza);
 console.log("Łączna siła smoka:", wynikSmoka);
+    
+        // USTALENIE ZWYCIĘZCY RUNDY
+
+if (wynikRycerza > wynikSmoka) {
+    punktyRycerzaFinal++;
+    console.log("Rundę wygrał RYCERZ!");
+} else {
+    punktySmokaFinal++;
+    console.log("Rundę wygrał SMOK!");
+}
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
