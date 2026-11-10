@@ -1122,7 +1122,11 @@ document.getElementById("zakoncz-przegrana-finalu")
         ogienSmoka = 0;
 
         wybranyKolorRycerza = null;
+// USUNIĘCIE ZAZNACZENIA POPRZEDNIEGO RYCERZA
 
+document.querySelectorAll("[data-rycerz]").forEach(przycisk => {
+    przycisk.classList.remove("wybrany-rycerz");
+});
         // Aktualizacja tablicy punktów
         document.getElementById("punkty-rycerza").textContent = "0";
         document.getElementById("punkty-smoka").textContent = "0";
