@@ -1317,6 +1317,18 @@ document.getElementById("zatwierdz-zetony")
 
         console.log("Żetony wybrane do walki ze smokiem:", wybraneZetony);
 
+        // OBLICZANIE SIŁY W FINALE
+
+let wynikRycerza = silaRycerzaFinal;
+
+wybraneZetony.forEach(zeton => {
+    wynikRycerza += zeton.wartosc;
+});
+
+const wynikSmoka = silaSmoka + ogienSmoka;
+
+console.log("Łączna siła rycerza:", wynikRycerza);
+console.log("Łączna siła smoka:", wynikSmoka);
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
