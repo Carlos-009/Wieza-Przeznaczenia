@@ -1426,6 +1426,27 @@ document.getElementById("wynik-finalu").innerHTML =
     " | 🐉 Smok: " + punktySmokaFinal + "</p>";
 
 pokazEkran("ekran-finalu");
+        // SPRAWDZENIE ZWYCIĘZCY CAŁEJ WALKI
+
+if (punktyRycerzaFinal === 2) {
+
+    document.getElementById("wynik-finalu").innerHTML +=
+        "<h2>🏆 RYCERZ POKONAŁ SMOKA!</h2>" +
+        "<p>Rycerz zwyciężył w finałowej walce!</p>";
+
+} else if (punktySmokaFinal === 2) {
+
+    document.getElementById("wynik-finalu").innerHTML +=
+        "<h2>🐉 SMOK ZWYCIĘŻYŁ!</h2>" +
+        "<p>Rycerz spada na pole pod wieżą!</p>";
+
+    document.getElementById("zakoncz-przegrana-finalu").style.display = "block";
+
+} else {
+
+    document.getElementById("nastepna-runda-finalu").style.display = "block";
+
+}
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
