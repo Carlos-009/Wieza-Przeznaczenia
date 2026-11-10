@@ -1,4 +1,6 @@
 
+
+
 const wynik = document.getElementById("wynik");
 const video = document.getElementById("video");
 const przycisk = document.getElementById("skanuj");
@@ -1339,6 +1341,13 @@ if (wynikRycerza > wynikSmoka) {
     punktySmokaFinal++;
     console.log("Rundę wygrał SMOK!");
 }
+        // AKTUALIZACJA PUNKTACJI FINAŁU
+
+document.getElementById("punkty-rycerza").textContent =
+    punktyRycerzaFinal;
+
+document.getElementById("punkty-smoka").textContent =
+    punktySmokaFinal;
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
