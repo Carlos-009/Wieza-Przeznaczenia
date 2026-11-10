@@ -1080,6 +1080,26 @@ document.getElementById("wybierz-final-smok")
 
         document.getElementById("wynik-finalu").textContent =
             "Wybierz kolor swojego rycerza.";
+    
+        // SPRAWDZENIE, CZY WALKA ZOSTAŁA ROZSTRZYGNIĘTA
+
+if (punktyRycerzaFinal === 2) {
+
+    document.getElementById("wynik-finalu").innerHTML +=
+        "<h2>🏆 RYCERZ POKONAŁ SMOKA!</h2>" +
+        "<p>Rycerz zwyciężył w finałowej walce!</p>";
+
+} else if (punktySmokaFinal === 2) {
+
+    document.getElementById("wynik-finalu").innerHTML +=
+        "<h2>🐉 SMOK ZWYCIĘŻYŁ!</h2>" +
+        "<p>Rycerz spada na pole pod wieżą!</p>";
+
+} else {
+
+    document.getElementById("nastepna-runda-finalu").style.display = "block";
+
+}
     });
 
 // WYBÓR KOLORU RYCERZA DO FINAŁU
