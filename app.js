@@ -1146,7 +1146,8 @@ document.getElementById("uzyj-eliksiru")
 
         // Ukrycie wyboru koloru
         document.getElementById("wybor-koloru-eliksiru").style.display = "none";
-
+// Ukrycie nagłówka wyboru rycerza po zwycięstwie
+document.querySelector("#ekran-eliksiru h2").style.display = "none";
         // Ukrycie przycisku użycia eliksiru
         document.getElementById("uzyj-eliksiru").style.display = "none";
 
