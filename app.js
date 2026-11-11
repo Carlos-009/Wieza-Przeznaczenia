@@ -340,9 +340,22 @@ videoStartowe.addEventListener("ended", () => {
     przyciskStart.style.display = "block";
 });
 
-// Kliknięcie START otwiera menu główne
+// Kliknięcie START otwiera menu i uruchamia muzykę
+
+const muzykaMenu = document.getElementById("muzyka-menu");
+
 przyciskStart.addEventListener("click", () => {
+
     pokazEkran("menu");
+
+    // Ustawienie delikatnej głośności
+    muzykaMenu.volume = 0.35;
+
+    // Odtwarzanie muzyki
+    muzykaMenu.play().catch(error => {
+        console.log("Nie udało się uruchomić muzyki:", error);
+    });
+
 });
 
 function zatrzymajVideo() {
