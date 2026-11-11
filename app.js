@@ -395,6 +395,10 @@ function odtworzFilm(adres, typ, wyciszony = false) {
 
         if (typ === "intro") {
             pokazEkran("menu");
+            // Wznowienie muzyki po zakończeniu Intro
+muzykaMenu.play().catch(error => {
+    console.log("Nie udało się wznowić muzyki:", error);
+});
         } else {
             pokazEkran("ekran-gry");
             wynik.textContent = "🟢 Przyłóż kolejny tag NFC";
