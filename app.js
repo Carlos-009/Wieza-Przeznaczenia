@@ -410,6 +410,10 @@ muzykaMenu.play().catch(error => {
 
         if (typ === "intro") {
             pokazEkran("menu");
+            // Przywrócenie muzyki, gdy Intro się nie załaduje
+muzykaMenu.play().catch(error => {
+    console.log("Nie udało się wznowić muzyki:", error);
+});
             alert("Nie udało się odtworzyć filmu intro.");
         } else {
             wynik.textContent = "Nie udało się odtworzyć filmu.";
