@@ -1081,6 +1081,37 @@ document.getElementById("mam-eliksir")
 
     });
 
+// WYBÓR KOLORU RYCERZA Z ELIKSIREM
+
+let wybranyKolorEliksiru = null;
+
+document.querySelectorAll("[data-eliksir]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        wybranyKolorEliksiru = button.dataset.eliksir;
+
+        // Usunięcie zaznaczenia z pozostałych kolorów
+        document.querySelectorAll("[data-eliksir]").forEach(przycisk => {
+            przycisk.classList.remove("wybrany-rycerz");
+        });
+
+        // Zaznaczenie wybranego koloru
+        button.classList.add("wybrany-rycerz");
+
+        // Komunikat dla gracza
+        document.getElementById("wynik-eliksiru").textContent =
+            "Wybrany rycerz: " +
+            wybranyKolorEliksiru.toUpperCase() +
+            ". Możesz użyć eliksiru niewidzialności!";
+
+        // Pokazanie przycisku użycia eliksiru
+        document.getElementById("uzyj-eliksiru").style.display = "block";
+
+    });
+
+});
+
 // ROZPOCZĘCIE FINAŁU ZE SMOKIEM
 
 document.getElementById("wybierz-final-smok")
