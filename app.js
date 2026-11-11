@@ -425,6 +425,8 @@ function odtworzFilm(adres, typ, wyciszony = false) {
 }
 
 function odtworzIntro(pierwszeUruchomienie = false) {
+        // Zatrzymanie muzyki menu na czas Intro
+    muzykaMenu.pause();
     if (pierwszeUruchomienie) {
         odtworzFilm(adresIntro, "intro", true);
     } else {
