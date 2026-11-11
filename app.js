@@ -350,8 +350,9 @@ przyciskStart.addEventListener("click", () => {
     let introPokazane = true;
 
     try {
-        introPokazane =
-            localStorage.getItem("wieza_intro_pokazane") === "tak";
+        introPokazane = false; // TEST PIERWSZEGO URUCHOMIENIA
+        //introPokazane =
+            //localStorage.getItem("wieza_intro_pokazane") === "tak";
     } catch (error) {
         console.log("Brak dostępu do zapisu Intro:", error);
     }
