@@ -1446,6 +1446,9 @@ if (punktyRycerzaFinal === 2) {
         "<h2>🏆 RYCERZ POKONAŁ SMOKA!</h2>" +
         "<p>Rycerz zwyciężył w finałowej walce!</p>";
 
+    // POKAZANIE PRZYCISKU ZAKOŃCZENIA GRY
+
+document.getElementById("zakonczenie-gry-finalu").style.display = "block";
 } else if (punktySmokaFinal === 2) {
 
     document.getElementById("wynik-finalu").innerHTML +=
