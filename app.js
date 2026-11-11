@@ -349,7 +349,7 @@ przyciskStart.addEventListener("click", () => {
     pokazEkran("menu");
 
     // Ustawienie delikatnej głośności
-    muzykaMenu.volume = 0.35;
+    muzykaMenu.volume = 0.15;
 
     // Odtwarzanie muzyki
     muzykaMenu.play().catch(error => {
