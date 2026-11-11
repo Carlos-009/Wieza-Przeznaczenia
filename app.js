@@ -418,7 +418,8 @@ function odtworzFilm(adres, typ, wyciszony = false) {
         if (typ === "intro") {
             pokazEkran("menu");
             // Wznowienie muzyki po zakończeniu Intro
-muzykaMenu.play().catch(error => {
+            muzykaMenu.volume = 0.15;
+            muzykaMenu.play().catch(error => {
     console.log("Nie udało się wznowić muzyki:", error);
 });
         } else {
