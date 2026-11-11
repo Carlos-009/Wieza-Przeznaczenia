@@ -1474,6 +1474,9 @@ przyciskPowrotFinalu.style.cursor = "not-allowed";
 
     document.getElementById("zakoncz-przegrana-finalu").style.display = "block";
 
+    // UKRYCIE ZWYKŁEGO POWROTU PO PRZEGRANEJ
+document.getElementById("powrot-finalu").style.display = "none";
+
 } else {
 
     document.getElementById("nastepna-runda-finalu").style.display = "block";
