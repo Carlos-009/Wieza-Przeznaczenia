@@ -1112,6 +1112,31 @@ document.querySelectorAll("[data-eliksir]").forEach(button => {
 
 });
 
+// POWRÓT Z EKRANU ELIKSIRU DO GRY
+
+document.getElementById("powrot-eliksiru")
+    .addEventListener("click", () => {
+
+        // Wyczyszczenie wybranego koloru
+        wybranyKolorEliksiru = null;
+
+        // Usunięcie czerwonej ramki
+        document.querySelectorAll("[data-eliksir]").forEach(przycisk => {
+            przycisk.classList.remove("wybrany-rycerz");
+        });
+
+        // Ukrycie przycisku użycia eliksiru
+        document.getElementById("uzyj-eliksiru").style.display = "none";
+
+        // Przywrócenie początkowego komunikatu
+        document.getElementById("wynik-eliksiru").textContent =
+            "Wybierz kolor rycerza, który posiada eliksir.";
+
+        // Powrót do ekranu skanowania NFC
+        pokazEkran("ekran-gry");
+
+    });
+
 // ROZPOCZĘCIE FINAŁU ZE SMOKIEM
 
 document.getElementById("wybierz-final-smok")
