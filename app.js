@@ -1670,26 +1670,6 @@ document.getElementById("powrot-finalu")
         wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
     });
 
-// INTRO PRZY PIERWSZYM URUCHOMIENIU
-
-window.addEventListener("load", () => {
-    let introPokazane = false;
-
-    try {
-        introPokazane = localStorage.getItem("wieza_intro_pokazane") === "tak";
-
-        if (!introPokazane) {
-            localStorage.setItem("wieza_intro_pokazane", "tak");
-        }
-    } catch (error) {
-        introPokazane = true;
-    }
-
-    if (!introPokazane) {
-        odtworzIntro(true);
-    }
-});
-
 // DŹWIĘK KLIKNIĘCIA PRZYCISKÓW
 
 document.addEventListener("click", (event) => {
