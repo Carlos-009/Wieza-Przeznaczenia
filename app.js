@@ -330,6 +330,21 @@ function pokazEkran(id) {
     document.getElementById(id).classList.add("aktywny");
 }
 
+// OBSŁUGA EKRANU STARTOWEGO
+
+const videoStartowe = document.getElementById("video-startowe");
+const przyciskStart = document.getElementById("przycisk-start");
+
+// Po zakończeniu filmu pokazujemy przycisk START
+videoStartowe.addEventListener("ended", () => {
+    przyciskStart.style.display = "block";
+});
+
+// Kliknięcie START otwiera menu główne
+przyciskStart.addEventListener("click", () => {
+    pokazEkran("menu");
+});
+
 function zatrzymajVideo() {
     video.pause();
     video.classList.remove("odtwarzanie");
