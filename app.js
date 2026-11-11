@@ -1080,6 +1080,14 @@ document.getElementById("wybierz-final-smok")
 
         document.getElementById("wynik-finalu").textContent =
             "Wybierz kolor swojego rycerza.";
+   // ODBLOKOWANIE POWROTU PRZY NOWEJ WALCE
+
+const przyciskPowrot =
+    document.getElementById("powrot-finalu");
+
+przyciskPowrot.disabled = false;
+przyciskPowrot.style.opacity = "1";
+przyciskPowrot.style.cursor = "pointer";
     });
 
 // ROZPOCZĘCIE NASTĘPNEJ RUNDY FINAŁU
