@@ -1077,6 +1077,22 @@ document.getElementById("powrot-z-walki")
 document.getElementById("mam-eliksir")
     .addEventListener("click", () => {
 
+        // Reset wyboru rycerza
+        wybranyKolorEliksiru = null;
+
+        document.querySelectorAll("[data-eliksir]").forEach(przycisk => {
+            przycisk.classList.remove("wybrany-rycerz");
+        });
+
+        // Przywrócenie przycisków
+        document.getElementById("wybor-koloru-eliksiru").style.display = "block";
+        document.getElementById("uzyj-eliksiru").style.display = "none";
+        document.getElementById("powrot-eliksiru").style.display = "block";
+
+        // Przywrócenie komunikatu
+        document.getElementById("wynik-eliksiru").textContent =
+            "Wybierz kolor rycerza, który posiada eliksir.";
+
         pokazEkran("ekran-eliksiru");
 
     });
