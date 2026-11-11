@@ -1112,6 +1112,33 @@ document.querySelectorAll("[data-eliksir]").forEach(button => {
 
 });
 
+// UŻYCIE ELIKSIRU NIEWIDZIALNOŚCI
+
+document.getElementById("uzyj-eliksiru")
+    .addEventListener("click", () => {
+
+        if (!wybranyKolorEliksiru) return;
+
+        // Komunikat o zwycięstwie
+        document.getElementById("wynik-eliksiru").innerHTML =
+            "<h2>✨ ELIKSIR NIEWIDZIALNOŚCI ZOSTAŁ UŻYTY!</h2>" +
+            "<p>🐉 Smok nie widzi rycerza i odlatuje!</p>" +
+            "<h2>🏆 RYCERZ " +
+            wybranyKolorEliksiru.toUpperCase() +
+            " ZWYCIĘŻYŁ!</h2>" +
+            "<p>Księżniczka została uratowana!</p>";
+
+        // Ukrycie wyboru koloru
+        document.getElementById("wybor-koloru-eliksiru").style.display = "none";
+
+        // Ukrycie przycisku użycia eliksiru
+        document.getElementById("uzyj-eliksiru").style.display = "none";
+
+        // Ukrycie powrotu — gra zakończona
+        document.getElementById("powrot-eliksiru").style.display = "none";
+
+    });
+
 // POWRÓT Z EKRANU ELIKSIRU DO GRY
 
 document.getElementById("powrot-eliksiru")
