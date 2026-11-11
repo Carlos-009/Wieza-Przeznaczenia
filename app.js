@@ -341,17 +341,39 @@ videoStartowe.addEventListener("ended", () => {
 });
 
 // Kliknięcie START otwiera menu i uruchamia muzykę
+// START - SPRAWDZENIE PIERWSZEGO URUCHOMIENIA
 
 const muzykaMenu = document.getElementById("muzyka-menu");
 
 przyciskStart.addEventListener("click", () => {
 
+    let introPokazane = true;
+
+    try {
+        introPokazane =
+            localStorage.getItem("wieza_intro_pokazane") === "tak";
+    } catch (error) {
+        console.log("Brak dostępu do zapisu Intro:", error);
+    }
+
+    // Pierwsze uruchomienie - odtwarzamy Intro
+    if (!introPokazane) {
+
+        try {
+            localStorage.setItem("wieza_intro_pokazane", "tak");
+        } catch (error) {
+            console.log("Nie udało się zapisać Intro:", error);
+        }
+
+        odtworzIntro(false);
+        return;
+    }
+
+    // Kolejne uruchomienia - otwieramy menu
     pokazEkran("menu");
 
-    // Ustawienie delikatnej głośności
-    muzykaMenu.volume = 0.15;
+    muzykaMenu.volume = 0.35;
 
-    // Odtwarzanie muzyki
     muzykaMenu.play().catch(error => {
         console.log("Nie udało się uruchomić muzyki:", error);
     });
