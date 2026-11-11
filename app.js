@@ -370,6 +370,12 @@ function zatrzymajVideo() {
 function powrotDoMenu() {
     zatrzymajVideo();
     pokazEkran("menu");
+    // Ponowne uruchomienie muzyki menu
+muzykaMenu.volume = 0.15;
+
+muzykaMenu.play().catch(error => {
+    console.log("Nie udało się wznowić muzyki:", error);
+});
 }
 
 function odtworzFilm(adres, typ, wyciszony = false) {
