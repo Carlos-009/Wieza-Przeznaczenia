@@ -1449,6 +1449,15 @@ if (punktyRycerzaFinal === 2) {
     // POKAZANIE PRZYCISKU ZAKOŃCZENIA GRY
 
 document.getElementById("zakonczenie-gry-finalu").style.display = "block";
+// BLOKADA POWROTU DO GRY PO ZWYCIĘSTWIE
+
+const przyciskPowrotFinalu =
+    document.getElementById("powrot-finalu");
+
+przyciskPowrotFinalu.disabled = true;
+przyciskPowrotFinalu.style.opacity = "0.35";
+przyciskPowrotFinalu.style.cursor = "not-allowed";
+
 } else if (punktySmokaFinal === 2) {
 
     document.getElementById("wynik-finalu").innerHTML +=
