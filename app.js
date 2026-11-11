@@ -1093,6 +1093,9 @@ document.getElementById("mam-eliksir")
         document.getElementById("wynik-eliksiru").textContent =
             "Wybierz kolor rycerza, który posiada eliksir.";
 
+        // Przywrócenie nagłówka wyboru rycerza
+document.querySelector("#ekran-eliksiru h2").style.display = "block";
+      
         pokazEkran("ekran-eliksiru");
 
     });
