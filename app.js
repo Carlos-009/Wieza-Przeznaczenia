@@ -435,6 +435,11 @@ wlaczDzwiek.addEventListener("click", () => {
 // MENU
 
 document.getElementById("rozpocznij").addEventListener("click", () => {
+
+    // Zatrzymanie muzyki menu
+    muzykaMenu.pause();
+    muzykaMenu.currentTime = 0;
+
     pokazEkran("ekran-gry");
     wynik.textContent = "Aktywuj NFC i przyłóż tag.";
 });
