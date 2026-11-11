@@ -1072,6 +1072,15 @@ document.getElementById("powrot-z-walki")
         wynik.textContent = "🟢 NFC aktywne — przyłóż kolejny tag.";
     });
 
+// OTWIERANIE EKRANU ELIKSIRU NIEWIDZIALNOŚCI
+
+document.getElementById("mam-eliksir")
+    .addEventListener("click", () => {
+
+        pokazEkran("ekran-eliksiru");
+
+    });
+
 // ROZPOCZĘCIE FINAŁU ZE SMOKIEM
 
 document.getElementById("wybierz-final-smok")
