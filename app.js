@@ -1088,6 +1088,9 @@ const przyciskPowrot =
 przyciskPowrot.disabled = false;
 przyciskPowrot.style.opacity = "1";
 przyciskPowrot.style.cursor = "pointer";
+   
+        // PONOWNE POKAZANIE PRZYCISKU POWROTU
+przyciskPowrot.style.display = "block";
     });
 
 // ROZPOCZĘCIE NASTĘPNEJ RUNDY FINAŁU
