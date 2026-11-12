@@ -306,6 +306,14 @@ dzwiekLosowania.play().catch(error => {
 const adresIntro =
     "https://archive.org/download/intro_20261103_2022/intro.mp4";
 
+// FILMY ZAKOŃCZENIOWE - ZWYCIĘSTWO NAD SMOKIEM
+
+const filmyZwyciestwaSmok = {
+    niebieski: "https://archive.org/download/FinalWp/FinalBlueWP.mp4",
+    czerwony: "https://archive.org/download/FinalWp/FinalRedWP.mp4",
+    zloty: "https://archive.org/download/FinalWp/FinalGoldWP.mp4",
+    srebrny: "https://archive.org/download/FinalWp/FinalSilverWP.mp4"
+};
 const filmy = {
     las: Array.from({ length: 18 }, (_, i) =>
         `https://archive.org/download/plikiWP/las${String(i + 1).padStart(2, "0")}.mp4`
