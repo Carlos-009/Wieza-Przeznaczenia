@@ -1,3 +1,4 @@
+// start
 const wynik = document.getElementById("wynik");
 const video = document.getElementById("video");
 const przycisk = document.getElementById("skanuj");
