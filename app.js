@@ -362,10 +362,7 @@ przyciskStart.addEventListener("click", () => {
 
         try {
             localStorage.setItem("wieza_intro_pokazane", "tak");
-        alert(
-    "TEST INTRO — zapisano: " +
-    localStorage.getItem("wieza_intro_pokazane")
-);
+        
         } catch (error) {
             console.log("Nie udało się zapisać Intro:", error);
         }
