@@ -545,6 +545,16 @@ wlaczDzwiek.addEventListener("click", () => {
 
 document.getElementById("rozpocznij").addEventListener("click", () => {
 
+    // BLOKADA ROZPOCZĘCIA ZAKOŃCZONEJ GRY
+
+    if (graZakonczona) {
+        alert(
+            "🏆 Poprzednia rozgrywka została zakończona!\n\n" +
+            "Aby rozpocząć nową grę, wybierz RESETUJ GRĘ."
+        );
+        return;
+    }
+
     // Zatrzymanie muzyki menu
     muzykaMenu.pause();
     muzykaMenu.currentTime = 0;
