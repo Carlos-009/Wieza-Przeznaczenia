@@ -122,6 +122,13 @@ document.querySelectorAll("[data-rycerz]").forEach(przycisk => {
 });
 
 document.getElementById("rozpocznij-walke-smokiem").style.display = "none";
+  // UKRYCIE PRZYCISKÓW POPRZEDNIEJ WALKI
+document.getElementById("losuj-sile-smoka").style.display = "none";
+document.getElementById("losuj-sile-rycerza-final").style.display = "none";
+document.getElementById("losuj-ogien-smoka").style.display = "none";
+document.getElementById("przejdz-do-zetonow-finalu").style.display = "none";
+document.getElementById("nastepna-runda-finalu").style.display = "none";
+document.getElementById("zakoncz-przegrana-finalu").style.display = "none";
     localStorage.setItem(
         "wieza_specjalne",
         JSON.stringify(zdobyteSpecjalne)
