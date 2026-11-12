@@ -425,6 +425,13 @@ function odtworzFilm(adres, typ, wyciszony = false) {
     video.onended = () => {
         zatrzymajVideo();
 
+        // ZAKOŃCZENIE GRY PO POKONANIU SMOKA
+
+if (typ === "zakonczenie-smok") {
+    pokazEkran("menu");
+    return;
+}
+        
         if (typ === "intro") {
             pokazEkran("menu");
             // Wznowienie muzyki po zakończeniu Intro
