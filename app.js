@@ -96,7 +96,12 @@ function resetujGre() {
     }
 
     zdobyteSpecjalne = {};
+   
+    // ODBLOKOWANIE NOWEJ ROZGRYWKI
 
+    graZakonczona = false;
+    localStorage.removeItem("wieza_gra_zakonczona");
+   
     // RESET WYNIKÓW WALKI ZE SMOKIEM
 
 punktyRycerzaFinal = 0;
