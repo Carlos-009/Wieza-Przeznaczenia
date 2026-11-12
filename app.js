@@ -1711,3 +1711,19 @@ document.addEventListener("click", (event) => {
         dzwiekKlik.play().catch(() => {});
     }
 });
+
+// FILM ZAKOŃCZENIOWY - ZWYCIĘSTWO NAD SMOKIEM
+
+document.getElementById("zakonczenie-gry-finalu")
+    .addEventListener("click", () => {
+
+        const adresFilmu =
+            filmyZwyciestwaSmok[wybranyKolorRycerza];
+
+        if (!adresFilmu) {
+            alert("Nie znaleziono filmu dla wybranego rycerza.");
+            return;
+        }
+
+        odtworzFilm(adresFilmu, "zakonczenie-smok");
+    });
