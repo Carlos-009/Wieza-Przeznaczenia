@@ -108,6 +108,10 @@ silaRycerzaFinal = 0;
 ogienSmoka = 0;
 
 wybranyKolorRycerza = null;
+    // PRZYWRÓCENIE PUNKTACJI NA EKRANIE FINAŁU
+document.getElementById("punkty-rycerza").textContent = "0";
+document.getElementById("punkty-smoka").textContent = "0";
+document.getElementById("numer-rundy").textContent = "1";
     localStorage.setItem(
         "wieza_specjalne",
         JSON.stringify(zdobyteSpecjalne)
