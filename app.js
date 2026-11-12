@@ -398,7 +398,10 @@ videoStartowe.addEventListener("ended", () => {
 // START - SPRAWDZENIE PIERWSZEGO URUCHOMIENIA
 
 const muzykaMenu = document.getElementById("muzyka-menu");
+// INFORMACJA O ZAKOŃCZENIU ROZGRYWKI
 
+let graZakonczona =
+    localStorage.getItem("wieza_gra_zakonczona") === "tak";
 przyciskStart.addEventListener("click", () => {
 
     let introPokazane = true;
