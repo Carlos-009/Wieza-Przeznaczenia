@@ -97,6 +97,17 @@ function resetujGre() {
 
     zdobyteSpecjalne = {};
 
+    // RESET WYNIKÓW WALKI ZE SMOKIEM
+
+punktyRycerzaFinal = 0;
+punktySmokaFinal = 0;
+numerRundyFinal = 1;
+
+silaSmoka = 0;
+silaRycerzaFinal = 0;
+ogienSmoka = 0;
+
+wybranyKolorRycerza = null;
     localStorage.setItem(
         "wieza_specjalne",
         JSON.stringify(zdobyteSpecjalne)
@@ -104,6 +115,7 @@ function resetujGre() {
 
     alert("Gra została zresetowana! Można rozpocząć nową rozgrywkę.");
 }
+
 // AKTUALNIE WYLOSOWANY PRZEDMIOT
 
 let aktualnyPrzedmiot = null;
