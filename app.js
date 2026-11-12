@@ -129,6 +129,18 @@ document.getElementById("losuj-ogien-smoka").style.display = "none";
 document.getElementById("przejdz-do-zetonow-finalu").style.display = "none";
 document.getElementById("nastepna-runda-finalu").style.display = "none";
 document.getElementById("zakoncz-przegrana-finalu").style.display = "none";
+   // PRZYWRÓCENIE PRZYCISKU POWROTU
+const powrotFinalu = document.getElementById("powrot-finalu");
+
+powrotFinalu.style.display = "block";
+powrotFinalu.disabled = false;
+powrotFinalu.style.opacity = "1";
+powrotFinalu.style.cursor = "pointer";
+
+// PRZYWRÓCENIE KOMUNIKATU POCZĄTKOWEGO
+
+document.getElementById("wynik-finalu").textContent =
+    "Wybierz kolor swojego rycerza.";
     localStorage.setItem(
         "wieza_specjalne",
         JSON.stringify(zdobyteSpecjalne)
