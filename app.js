@@ -1706,6 +1706,14 @@ if (punktyRycerzaFinal === 2) {
         "<h2>🏆 RYCERZ POKONAŁ SMOKA!</h2>" +
         "<p>Rycerz zwyciężył w finałowej walce!</p>";
 
+    // ZAPAMIĘTANIE ZAKOŃCZENIA ROZGRYWKI
+
+graZakonczona = true;
+
+localStorage.setItem(
+    "wieza_gra_zakonczona",
+    "tak"
+);
     // POKAZANIE PRZYCISKU ZAKOŃCZENIA GRY
 
 document.getElementById("zakonczenie-gry-finalu").style.display = "block";
