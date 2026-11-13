@@ -364,6 +364,14 @@ const filmyZwyciestwaSmok = {
     zloty: "https://archive.org/download/FinalWp/FinalGoldWP.mp4",
     srebrny: "https://archive.org/download/FinalWp/FinalSilverWP.mp4"
 };
+// FILMY ZAKOŃCZENIOWE - ELIKSIR NIEWIDZIALNOŚCI
+
+const filmyZwyciestwaEliksir = {
+    niebieski: "https://archive.org/download/FinalWp/final_eliksir_blue.mp4",
+    czerwony: "https://archive.org/download/FinalWp/final_eliksir_red.mp4",
+    zloty: "https://archive.org/download/FinalWp/final_eliksir_gold.mp4",
+    srebrny: "https://archive.org/download/FinalWp/final_eliksir_silver.mp4"
+};
 const filmy = {
     las: Array.from({ length: 18 }, (_, i) =>
         `https://archive.org/download/plikiWP/las${String(i + 1).padStart(2, "0")}.mp4`
