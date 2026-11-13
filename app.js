@@ -1289,7 +1289,14 @@ document.getElementById("uzyj-eliksiru")
     .addEventListener("click", () => {
 
         if (!wybranyKolorEliksiru) return;
+        // ZAPAMIĘTANIE ZAKOŃCZENIA GRY PO UŻYCIU ELIKSIRU
 
+        graZakonczona = true;
+
+        localStorage.setItem(
+            "wieza_gra_zakonczona",
+            "tak"
+        );
         // Komunikat o zwycięstwie
         document.getElementById("wynik-eliksiru").innerHTML =
             "<h2>✨ ELIKSIR NIEWIDZIALNOŚCI ZOSTAŁ UŻYTY!</h2>" +
