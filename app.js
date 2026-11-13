@@ -1323,7 +1323,9 @@ document.querySelector("#ekran-eliksiru h2").style.display = "none";
 
         // Ukrycie powrotu — gra zakończona
         document.getElementById("powrot-eliksiru").style.display = "none";
+// POKAZANIE PRZYCISKU FILMOWEGO ZAKOŃCZENIA
 
+document.getElementById("zakonczenie-gry-eliksir").style.display = "block";
     });
 
 // POWRÓT Z EKRANU ELIKSIRU DO GRY
