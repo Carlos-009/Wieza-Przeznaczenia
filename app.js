@@ -1822,3 +1822,19 @@ document.getElementById("zakonczenie-gry-finalu")
 
         odtworzFilm(adresFilmu, "zakonczenie-smok");
     });
+
+// FILM ZAKOŃCZENIOWY - ELIKSIR NIEWIDZIALNOŚCI
+
+document.getElementById("zakonczenie-gry-eliksir")
+    .addEventListener("click", () => {
+
+        const adresFilmu =
+            filmyZwyciestwaEliksir[wybranyKolorEliksiru];
+
+        if (!adresFilmu) {
+            alert("Nie znaleziono filmu dla wybranego rycerza.");
+            return;
+        }
+
+        odtworzFilm(adresFilmu, "zakonczenie-eliksir");
+    });
