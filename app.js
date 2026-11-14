@@ -119,6 +119,9 @@ document.getElementById("punkty-smoka").textContent = "0";
 document.getElementById("numer-rundy").textContent = "1";
  // UKRYCIE PRZYCISKU ZAKOŃCZENIA POPRZEDNIEJ GRY
 document.getElementById("zakonczenie-gry-finalu").style.display = "none";
+    // UKRYCIE ZAKOŃCZENIA PO ELIKSIRZE
+
+document.getElementById("zakonczenie-gry-eliksir").style.display = "none";
     // PRZYWRÓCENIE WYBORU KOLORU RYCERZA
 document.getElementById("wybor-koloru-rycerza").style.display = "block";
 
