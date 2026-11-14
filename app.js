@@ -488,7 +488,7 @@ function odtworzFilm(adres, typ, wyciszony = false) {
 
         // ZAKOŃCZENIE GRY PO POKONANIU SMOKA
 
-if (typ === "zakonczenie-smok") {
+if (typ === "zakonczenie-smok" || typ === "zakonczenie-eliksir") {
     pokazEkran("menu");
     return;
 }
