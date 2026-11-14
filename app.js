@@ -576,13 +576,21 @@ document.getElementById("rozpocznij").addEventListener("click", () => {
 
     // BLOKADA ROZPOCZĘCIA ZAKOŃCZONEJ GRY
 
-    if (graZakonczona) {
-        alert(
-            "🏆 Poprzednia rozgrywka została zakończona!\n\n" +
-            "Aby rozpocząć nową grę, wybierz RESETUJ GRĘ."
-        );
+// NOWA GRA PO ZAKOŃCZONEJ ROZGRYWCE
+
+if (graZakonczona) {
+
+    const nowaGra = confirm(
+        "🏆 Poprzednia rozgrywka została zakończona!\n\n" +
+        "Czy chcesz rozpocząć nową grę?"
+    );
+
+    if (!nowaGra) {
         return;
     }
+
+    resetujGre(true);
+}
 
     // Zatrzymanie muzyki menu
     muzykaMenu.pause();
