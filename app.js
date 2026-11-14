@@ -157,7 +157,11 @@ document.getElementById("wynik-finalu").textContent =
         JSON.stringify(zdobyteSpecjalne)
     );
 
+// KOMUNIKAT TYLKO PRZY RĘCZNYM RESETOWANIU
+
+if (!automatyczny) {
     alert("Gra została zresetowana! Można rozpocząć nową rozgrywkę.");
+}
 }
 
 // AKTUALNIE WYLOSOWANY PRZEDMIOT
