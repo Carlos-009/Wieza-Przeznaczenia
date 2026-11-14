@@ -86,13 +86,16 @@ function zapiszZdobywce(typ, kolor) {
 }
 // RESETOWANIE GRY
 
-function resetujGre() {
-    const potwierdzenie = confirm(
-        "Czy na pewno chcesz rozpocząć nową grę? Wszystkie zdobyte podwójne ataki i podwójne obrony zostaną wyzerowane."
-    );
+function resetujGre(automatyczny = false) {
 
-    if (!potwierdzenie) {
-        return;
+    if (!automatyczny) {
+        const potwierdzenie = confirm(
+            "Czy na pewno chcesz rozpocząć nową grę? Wszystkie zdobyte podwójne ataki i podwójne obrony zostaną wyzerowane."
+        );
+
+        if (!potwierdzenie) {
+            return;
+        }
     }
 
     zdobyteSpecjalne = {};
