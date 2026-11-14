@@ -492,7 +492,18 @@ function odtworzFilm(adres, typ, wyciszony = false) {
         // ZAKOŃCZENIE GRY PO POKONANIU SMOKA
 
 if (typ === "zakonczenie-smok" || typ === "zakonczenie-eliksir") {
+
     pokazEkran("menu");
+
+    // PRZYWRÓCENIE MUZYKI MENU PO ZAKOŃCZENIU GRY
+
+    muzykaMenu.volume = 0.35;
+    muzykaMenu.currentTime = 0;
+
+    muzykaMenu.play().catch(error => {
+        console.log("Nie udało się uruchomić muzyki menu:", error);
+    });
+
     return;
 }
         
