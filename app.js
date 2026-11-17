@@ -55,7 +55,8 @@ try {
     zdobyteSpecjalne = {};
 }
 
-const adresDzwieku = nazwa => "dzwieki/" + nazwa;
+const adresDzwieku = nazwa => "https://wieza.bajkodruk3d-gry.pl/dzwieki/" + nazwa;
+
 // SPRAWDZANIE, CZY SPECJALNY ŻETON JEST JESZCZE DOSTĘPNY
 
 function czySpecjalnyDostepny(przedmiot) {
