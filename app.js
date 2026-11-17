@@ -369,10 +369,10 @@ const adresIntro =
 // FILMY ZAKOŃCZENIOWE - ZWYCIĘSTWO NAD SMOKIEM
 
 const filmyZwyciestwaSmok = {
-    niebieski: "https://archive.org/download/FinalWp/FinalBlueWP.mp4",
-    czerwony: "https://archive.org/download/FinalWp/FinalRedWP.mp4",
-    zloty: "https://archive.org/download/FinalWp/FinalGoldWP.mp4",
-    srebrny: "https://archive.org/download/FinalWp/FinalSilverWP.mp4"
+        niebieski: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/FinalBlueWP.mp4",
+    czerwony: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/FinalRedWP.mp4",
+    zloty: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/FinalGoldWP.mp4",
+    srebrny: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/FinalSilverWP.mp4"
 };
 // FILMY ZAKOŃCZENIOWE - ELIKSIR NIEWIDZIALNOŚCI
 
