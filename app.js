@@ -377,10 +377,10 @@ const filmyZwyciestwaSmok = {
 // FILMY ZAKOŃCZENIOWE - ELIKSIR NIEWIDZIALNOŚCI
 
 const filmyZwyciestwaEliksir = {
-    niebieski: "https://archive.org/download/FinalWp/final_eliksir_blue.mp4",
-    czerwony: "https://archive.org/download/FinalWp/final_eliksir_red.mp4",
-    zloty: "https://archive.org/download/FinalWp/final_eliksir_gold.mp4",
-    srebrny: "https://archive.org/download/FinalWp/final_eliksir_silver.mp4"
+    niebieski: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/final_eliksir_blue.mp4",
+    czerwony: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/final_eliksir_red.mp4",
+    zloty: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/final_eliksir_gold.mp4",
+    srebrny: "https://wieza.bajkodruk3d-gry.pl/zakonczenia/final_eliksir_silver.mp4"
 };
 const filmy = {
     las: Array.from({ length: 18 }, (_, i) =>
