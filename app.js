@@ -339,8 +339,7 @@ dzwiekLosowania.play().catch(error => {
             Math.floor(Math.random() * dostepne.length)
         ];
 
-        obrazLosowania.src = "przedmioty/" + przedmiot.obraz;
-
+        obrazLosowania.src = "https://wieza.bajkodruk3d-gry.pl/grafiki/" + przedmiot.obraz;
         czas += opoznienie;
 
         if (czas >= czasCalkowity) {
