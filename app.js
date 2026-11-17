@@ -885,11 +885,11 @@ przycisk.addEventListener("click", () => {
 // FILMY LOSUJĄCE SIŁĘ ATAKU
 
 const filmySilyAtaku = [
-    "https://archive.org/download/atak_rycerzy/sila_ataku01.mp4",
-    "https://archive.org/download/atak_rycerzy/sila_ataku02.mp4",
-    "https://archive.org/download/atak_rycerzy/sila_ataku03.mp4",
-    "https://archive.org/download/atak_rycerzy/sila_ataku04.mp4",
-    "https://archive.org/download/atak_rycerzy/sila_ataku05.mp4"
+    "https://wieza.bajkodruk3d-gry.pl/walka/sila_ataku1.mp4",
+    "https://wieza.bajkodruk3d-gry.pl/walka/sila_ataku2.mp4",
+    "https://wieza.bajkodruk3d-gry.pl/walka/sila_ataku3.mp4",
+    "https://wieza.bajkodruk3d-gry.pl/walka/sila_ataku4.mp4",
+    "https://wieza.bajkodruk3d-gry.pl/walka/sila_ataku5.mp4"
 ];
 
 // FILMY OGNIA SMOKA W FINALE
