@@ -195,8 +195,7 @@ function powrotDoLosowania() {
 
 function pokazWylosowanyPrzedmiot(przedmiot) {
     aktualnyPrzedmiot = przedmiot;
-
-    obrazLosowania.src = "przedmioty/" + przedmiot.obraz;
+    obrazLosowania.src = "https://wieza.bajkodruk3d-gry.pl/grafiki/" + przedmiot.obraz;
     nazwaPrzedmiotu.textContent = przedmiot.nazwa;
 
     przyciskDostepny.style.display = przedmiot.specjalny ? "none" : "block";
