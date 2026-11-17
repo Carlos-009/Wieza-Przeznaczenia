@@ -895,9 +895,9 @@ const filmySilyAtaku = [
 // FILMY OGNIA SMOKA W FINALE
 
 const filmyOgniaSmoka = [
-    "https://archive.org/download/walkaogien/Ogien0.mp4",
-    "https://archive.org/download/walkaogien/ogien1.mp4",
-    "https://archive.org/download/walkaogien/ogien2.mp4"
+    "https://wieza.bajkodruk3d-gry.pl/smok/Ogien0.mp4",
+    "https://wieza.bajkodruk3d-gry.pl/smok/ogien1.mp4",
+    "https://wieza.bajkodruk3d-gry.pl/smok/ogien2.mp4"
 ];
 
 // WYNIKI SIŁY ATAKU RYCERZY
