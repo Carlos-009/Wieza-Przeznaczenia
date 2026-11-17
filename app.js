@@ -253,7 +253,7 @@ function losujCzarownice() {
         obrazCzarownicy.style.display = "block";
 
         if (sukces) {
-            obrazCzarownicy.src = "przedmioty/eliksir.jpg";
+            obrazCzarownicy.src = "https://wieza.bajkodruk3d-gry.pl/czarownica/eliksir.jpg";
             nazwaCzarownicy.textContent = "✨ ELIKSIR NIEWIDZIALNOŚCI!";
 
             const glos = new Audio(
@@ -265,7 +265,7 @@ function losujCzarownice() {
             });
 
         } else {
-            obrazCzarownicy.src = "przedmioty/pudlo.jpg";
+            obrazCzarownicy.src = "https://wieza.bajkodruk3d-gry.pl/czarownica/pudlo.jpg";
             nazwaCzarownicy.textContent = "💀 NIC Z TEGO!";
 
             const glos = new Audio(
