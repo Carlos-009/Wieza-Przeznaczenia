@@ -236,8 +236,8 @@ function losujCzarownice() {
     nazwaCzarownicy.textContent = "🧙‍♀️ Czarownica warzy eliksir...";
 
     obrazCzarownicy.style.display = "none";
-"https://wieza.bajkodruk3d-gry.pl/czarownica/czarownica_czaruje.mp4"
-    video.loop = false;
+video.src = "https://wieza.bajkodruk3d-gry.pl/czarownica/czarownica_czaruje.mp4";
+video.loop = false;
     video.controls = false;
     video.muted = false;
     video.classList.add("odtwarzanie");
