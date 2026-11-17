@@ -364,7 +364,7 @@ dzwiekLosowania.play().catch(error => {
     zmienObraz();
 }
 const adresIntro =
-    "https://archive.org/download/intro_20261103_2022/intro.mp4";
+"https://wieza.bajkodruk3d-gry.pl/intro_wp.mp4";
 
 // FILMY ZAKOŃCZENIOWE - ZWYCIĘSTWO NAD SMOKIEM
 
