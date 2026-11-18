@@ -1807,6 +1807,30 @@ document.getElementById("powrot-finalu").style.display = "none";
     document.getElementById("nastepna-runda-finalu").style.display = "block";
 
 }
+   // GŁOSOWY WYNIK FINAŁU
+
+let nazwaGlosuFinalu;
+
+if (punktyRycerzaFinal === 2) {
+    nazwaGlosuFinalu = "final_wygrana_rycerz.mp3";
+
+} else if (punktySmokaFinal === 2) {
+    nazwaGlosuFinalu = "final_przegrana_rycerz.mp3";
+
+} else if (wynikRycerza > wynikSmoka) {
+    nazwaGlosuFinalu = "final_runda_rycerz.mp3";
+
+} else {
+    nazwaGlosuFinalu = "final_runda_smok.mp3";
+}
+
+const glosWynikuFinalu = new Audio(
+    adresDzwieku(nazwaGlosuFinalu)
+);
+
+glosWynikuFinalu.play().catch(error => {
+    console.log("Błąd głosu wyniku finału:", error);
+});
     });
 
 // POWRÓT Z WYBORU ŻETONÓW FINAŁU
