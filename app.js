@@ -1354,7 +1354,22 @@ document.querySelector("#ekran-eliksiru h2").style.display = "none";
 const glosEliksiru = new Audio(
     adresDzwieku("final_eliksir_glos.mp3")
 );
+// BLOKADA FILMU DO ZAKOŃCZENIA NARRACJI
+const przyciskZakonczeniaEliksiru =
+    document.getElementById("zakonczenie-gry-eliksir");
 
+przyciskZakonczeniaEliksiru.disabled = true;
+przyciskZakonczeniaEliksiru.style.opacity = "0.4";
+
+glosEliksiru.onended = () => {
+    przyciskZakonczeniaEliksiru.disabled = false;
+    przyciskZakonczeniaEliksiru.style.opacity = "1";
+};
+
+glosEliksiru.onerror = () => {
+    przyciskZakonczeniaEliksiru.disabled = false;
+    przyciskZakonczeniaEliksiru.style.opacity = "1";
+};
 glosEliksiru.play().catch(error => {
     console.log("Błąd głosu eliksiru:", error);
 });
