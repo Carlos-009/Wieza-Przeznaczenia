@@ -1925,8 +1925,36 @@ const glosWynikuFinalu = new Audio(
     adresDzwieku(nazwaGlosuFinalu)
 );
 
+// BLOKADA POWROTU PO PRZEGRANYM FINALE
+if (punktySmokaFinal === 2) {
+
+    const przyciskPoPrzegranej =
+        document.getElementById("zakoncz-przegrana-finalu");
+
+    przyciskPoPrzegranej.disabled = true;
+    przyciskPoPrzegranej.style.opacity = "0.4";
+
+    // ODBLOKOWANIE PO ZAKOŃCZENIU GŁOSU
+    function odblokujPowrot() {
+        przyciskPoPrzegranej.disabled = false;
+        przyciskPoPrzegranej.style.opacity = "1";
+    }
+
+    glosWynikuFinalu.onended = odblokujPowrot;
+    glosWynikuFinalu.onerror = odblokujPowrot;
+}
+
 glosWynikuFinalu.play().catch(error => {
     console.log("Błąd głosu wyniku finału:", error);
+
+    // ODBLOKOWANIE W RAZIE BŁĘDU
+    if (punktySmokaFinal === 2) {
+        const przyciskPoPrzegranej =
+            document.getElementById("zakoncz-przegrana-finalu");
+
+        przyciskPoPrzegranej.disabled = false;
+        przyciskPoPrzegranej.style.opacity = "1";
+    }
 });
     });
 
