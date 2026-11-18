@@ -1,4 +1,3 @@
-// start
 const wynik = document.getElementById("wynik");
 const video = document.getElementById("video");
 const przycisk = document.getElementById("skanuj");
@@ -1699,14 +1698,32 @@ video.onended = () => {
     video.pause();
     video.removeAttribute("src");
     video.load();
+    
 // ZABAWNY KOMENTARZ PO FILMIE OGNIA SMOKA
 
 const glosOgnia = new Audio(
     adresDzwieku("final_ogien" + ogienSmoka + ".mp3")
 );
 
+// BLOKADA PRZEJŚCIA DO ŻETONÓW
+const przyciskZetonow =
+    document.getElementById("przejdz-do-zetonow-finalu");
+
+przyciskZetonow.disabled = true;
+przyciskZetonow.style.opacity = "0.4";
+
+// ODBLOKOWANIE PO ZAKOŃCZENIU NARRACJI
+function odblokujZetony() {
+    przyciskZetonow.disabled = false;
+    przyciskZetonow.style.opacity = "1";
+}
+
+glosOgnia.onended = odblokujZetony;
+glosOgnia.onerror = odblokujZetony;
+
 glosOgnia.play().catch(error => {
     console.log("Błąd głosu ognia smoka:", error);
+    odblokujZetony();
 });
     let opisOgnia = "";
 
