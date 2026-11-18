@@ -1349,7 +1349,16 @@ document.querySelector("#ekran-eliksiru h2").style.display = "none";
 
         // Ukrycie powrotu — gra zakończona
         document.getElementById("powrot-eliksiru").style.display = "none";
-// POKAZANIE PRZYCISKU FILMOWEGO ZAKOŃCZENIA
+// GŁOS ZWYCIĘSTWA DZIĘKI ELIKSIROWI
+
+const glosEliksiru = new Audio(
+    adresDzwieku("final_eliksir_glos.mp3")
+);
+
+glosEliksiru.play().catch(error => {
+    console.log("Błąd głosu eliksiru:", error);
+});
+        // POKAZANIE PRZYCISKU FILMOWEGO ZAKOŃCZENIA
 
 document.getElementById("zakonczenie-gry-eliksir").style.display = "block";
     });
