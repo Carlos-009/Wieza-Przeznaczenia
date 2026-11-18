@@ -1509,7 +1509,14 @@ button.classList.add("wybrany-rycerz");
 
 document.getElementById("rozpocznij-walke-smokiem")
     .addEventListener("click", () => {
+// GŁOS ROZPOCZYNAJĄCY FINAŁ
+const glosStartFinalu = new Audio(
+    adresDzwieku("final_start.mp3")
+);
 
+glosStartFinalu.play().catch(error => {
+    console.log("Błąd głosu rozpoczęcia finału:", error);
+});
         punktyRycerzaFinal = 0;
         punktySmokaFinal = 0;
         numerRundyFinal = 1;
