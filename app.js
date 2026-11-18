@@ -1634,7 +1634,15 @@ video.onended = () => {
     video.pause();
     video.removeAttribute("src");
     video.load();
+// ZABAWNY KOMENTARZ PO FILMIE OGNIA SMOKA
 
+const glosOgnia = new Audio(
+    adresDzwieku("final_ogien" + ogienSmoka + ".mp3")
+);
+
+glosOgnia.play().catch(error => {
+    console.log("Błąd głosu ognia smoka:", error);
+});
     let opisOgnia = "";
 
     if (ogienSmoka === 0) {
