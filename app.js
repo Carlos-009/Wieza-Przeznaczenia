@@ -1404,7 +1404,14 @@ przyciskPowrot.style.display = "block";
 
 document.getElementById("nastepna-runda-finalu")
     .addEventListener("click", () => {
+// GŁOS ZAPOWIADAJĄCY KOLEJNĄ RUNDĘ
+const glosNastepnejRundy = new Audio(
+    adresDzwieku("final_nastepna_runda.mp3")
+);
 
+glosNastepnejRundy.play().catch(error => {
+    console.log("Błąd głosu następnej rundy:", error);
+});
         numerRundyFinal++;
 
         silaSmoka = 0;
