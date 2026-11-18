@@ -1372,6 +1372,10 @@ glosEliksiru.onerror = () => {
 };
 glosEliksiru.play().catch(error => {
     console.log("Błąd głosu eliksiru:", error);
+
+    // Odblokowanie zakończenia, gdy głos nie wystartuje
+    przyciskZakonczeniaEliksiru.disabled = false;
+    przyciskZakonczeniaEliksiru.style.opacity = "1";
 });
         // POKAZANIE PRZYCISKU FILMOWEGO ZAKOŃCZENIA
 
