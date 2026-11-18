@@ -1437,8 +1437,25 @@ const glosNastepnejRundy = new Audio(
     adresDzwieku("final_nastepna_runda.mp3")
 );
 
+// BLOKADA LOSOWANIA NA CZAS ZAPOWIEDZI
+const przyciskSmoka =
+    document.getElementById("losuj-sile-smoka");
+
+przyciskSmoka.disabled = true;
+przyciskSmoka.style.opacity = "0.4";
+
+// ODBLOKOWANIE PO ZAKOŃCZENIU NARRACJI
+function odblokujSmoka() {
+    przyciskSmoka.disabled = false;
+    przyciskSmoka.style.opacity = "1";
+}
+
+glosNastepnejRundy.onended = odblokujSmoka;
+glosNastepnejRundy.onerror = odblokujSmoka;
+
 glosNastepnejRundy.play().catch(error => {
     console.log("Błąd głosu następnej rundy:", error);
+    odblokujSmoka();
 });
         numerRundyFinal++;
 
