@@ -1549,8 +1549,28 @@ const glosStartFinalu = new Audio(
     adresDzwieku("final_start.mp3")
 );
 
+// BLOKADA LOSOWANIA NA CZAS NARRACJI
+const przyciskLosowaniaSmoka =
+    document.getElementById("losuj-sile-smoka");
+
+przyciskLosowaniaSmoka.disabled = true;
+przyciskLosowaniaSmoka.style.opacity = "0.4";
+
+// ODBLOKOWANIE PRZYCISKU
+function odblokujLosowanieSmoka() {
+    przyciskLosowaniaSmoka.disabled = false;
+    przyciskLosowaniaSmoka.style.opacity = "1";
+}
+
+// PO ZAKOŃCZENIU GŁOSU
+glosStartFinalu.onended = odblokujLosowanieSmoka;
+
+// W RAZIE BŁĘDU ODTWARZANIA
+glosStartFinalu.onerror = odblokujLosowanieSmoka;
+
 glosStartFinalu.play().catch(error => {
     console.log("Błąd głosu rozpoczęcia finału:", error);
+    odblokujLosowanieSmoka();
 });
         punktyRycerzaFinal = 0;
         punktySmokaFinal = 0;
